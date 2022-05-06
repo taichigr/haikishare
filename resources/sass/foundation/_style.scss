@@ -1,0 +1,22 @@
+html,
+body {
+  width: 100%;
+  color: $font-color_default;
+  background-color: $base-color;
+  font-size: $font-size_default;
+  line-height: 1.8;
+  font-family: $font-family_default;
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+}
+a {
+  color: $font-color_default;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+img {
+  width: 100%;
+  vertical-align: bottom;
+}

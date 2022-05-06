@@ -49775,6 +49775,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./script */ "./resources/js/script.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49910,6 +49912,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/script.js":
+/*!********************************!*\
+  !*** ./resources/js/script.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  // メニューボタン関連処理
+  $('.js-toggle-open').on('click', function () {
+    $text = $(this).children('span').text();
+
+    if ($text === 'menu') {
+      $(this).children('span').text('close');
+    } else {
+      $(this).children('span').text('menu');
+    }
+
+    $('.js-toggle-menu').toggleClass('is-active');
+  }); // 関係のない箇所をクリックした際にメニュードロップダウンを閉じる
+
+  $(document).on('click', function (event) {
+    // 表示したポップアップ以外の部分をクリックしたとき
+    if ($('.js-toggle-menu').hasClass('is-active')) {
+      if (!$(event.target).closest('.js-toggle-open').length) {
+        $('.js-toggle-menu').toggleClass('is-active');
+        $('.js-toggle-open').children('span').text('menu');
+      }
+    }
+  }); // ボタンの二重クリック防止
+
+  $('.js-button-prevent-double').on('click', function () {
+    $('.btn').prop('disabled', true);
+  });
+});
 
 /***/ }),
 

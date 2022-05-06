@@ -1,0 +1,35 @@
+.c-form {
+    @media screen and (min-width:768px){
+    }
+    &__container {
+        width: 100%;
+    }
+    &__control {
+        width: 100%;
+        margin-top: $space_l;
+        // padding-right: $space_xl;
+        // padding-left: $space_xl;
+    }
+    &__label {
+
+    }
+    &__inputContainer {
+        width: 100%;
+    }
+    &__input {
+        width: 100%;
+        padding: $space_m;
+        border: 1px solid $border-color-default;
+        // background-color: $bgGray;
+        border-radius: $space_m;
+        &:focus {
+            outline: none;
+            background-color: $bgGray;
+        }
+    }
+    &__buttonArea {
+        margin-top: $space_3l;
+        width: 100%;
+        text-align: right;
+    }
+}

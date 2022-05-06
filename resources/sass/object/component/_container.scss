@@ -1,0 +1,10 @@
+.c-auth__container {
+    width: 100%;
+    padding-right: $space_xl;
+    padding-left: $space_xl;
+    @media screen and (min-width:768px){
+        width: 500px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

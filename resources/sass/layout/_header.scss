@@ -1,0 +1,9 @@
+.l-header {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    height: 56px;
+    // @include mq() {
+    // }
+    font-size: $font-size-header;
+}
