@@ -531,6 +531,10 @@ img {
   border-radius: 8px;
 }
 
+.c-button__default:hover {
+  opacity: 0.8;
+}
+
 .c-auth__container {
   width: 100%;
   padding-right: 16px;
@@ -563,11 +567,12 @@ img {
   padding: 8px;
   border: 1px solid #999;
   border-radius: 8px;
+  font-family: "Nunito", sans-serif;
 }
 
 .c-form__input:focus {
   outline: none;
-  background-color: #F6F6F6;
+  background-color: #eeeeee;
 }
 
 .c-form__buttonArea {

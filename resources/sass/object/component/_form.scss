@@ -22,9 +22,10 @@
         border: 1px solid $border-color-default;
         // background-color: $bgGray;
         border-radius: $space_m;
+        font-family: $font-family-sans-serif;
         &:focus {
             outline: none;
-            background-color: $bgGray;
+            background-color: $inputAreaColor;
         }
     }
     &__buttonArea {

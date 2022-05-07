@@ -3,4 +3,7 @@
     background-color: $main-color;
     color: $font-color-white;
     border-radius: $space_m;
+    &:hover {
+        opacity: 0.8;
+    }
 }
