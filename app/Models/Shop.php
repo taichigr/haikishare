@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -23,7 +24,12 @@ class Shop extends Authenticatable
     protected $guard = 'shop';
 
     protected $fillable = [
-        'name', 'branch_name', 'email', 'address', 'password',
+        'name',
+        'branch_name',
+        'email',
+        'prefecture_id',
+        'address',
+        'password',
     ];
 
     /**
@@ -43,4 +49,9 @@ class Shop extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function prefecture(): HasOne
+    {
+        return $this->hasOne('App\Models\Prefecture');
+    }
 }

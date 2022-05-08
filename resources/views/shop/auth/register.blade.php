@@ -1,5 +1,4 @@
 @extends('layouts.shop.app')
-
 @section('content')
 <div class="c-auth__container">
     <div class="c-page-title__container">
@@ -31,9 +30,21 @@
                 </div>
             </div>
 
-            {{-- TODO 正規化する --}}
             <div class="c-form__control">
-                <label for="name" class="c-form__label">住所</label>
+                <label for="name" class="c-form__label">都道府県</label>
+                <div class="c-form__inputContainer">
+                    <select name="prefecture_id" class=".c-form__selectbox @error('address') is-invalid @enderror" required>
+                        @foreach (config('pref') as $pref_id => $name)
+                        <option value="{{ $pref_id }}">{{ $name }}</option>
+                        @endforeach
+                    </select>
+                    @error('prefecture_id')
+                        @include('../../components/error_message')
+                    @enderror
+                </div>
+            </div>
+            <div class="c-form__control">
+                <label for="name" class="c-form__label">都道府県以降の住所</label>
                 <div class="c-form__inputContainer">
                     <input id="address" type="text" class="c-form__input  @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
                     @error('address')

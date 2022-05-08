@@ -66,6 +66,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'branch_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:shops'],
+            'prefecture_id' => ['required', 'numeric', 'digits_between:1,2'],
             'address' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -83,6 +84,7 @@ class RegisterController extends Controller
             'name'     => $data['name'],
             'branch_name'     => $data['branch_name'],
             'email'    => $data['email'],
+            'prefecture_id' => $data['prefecture_id'],
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
         ]);
