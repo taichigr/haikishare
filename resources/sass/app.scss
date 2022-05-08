@@ -19,9 +19,10 @@ Foundation
 // ==========================================================================
 // Layout
 // ==========================================================================
-// @import "layout/_footer";
 @import "layout/_header";
 @import "layout/_main";
+@import "layout/_footer";
+
 // @import "layout/_sidebar";
 
 
@@ -45,6 +46,8 @@ Foundation
 // Project
 // -----------------------------------------------------------------
 @import "object/project/menu";
+@import "object/project/footer";
+
 // @import "object/project/_form";
 
 // @import "object/project/_articles";

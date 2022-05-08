@@ -524,6 +524,15 @@ img {
   margin-top: 56px;
 }
 
+.l-footer {
+  margin-top: 16px;
+  width: 100%;
+  height: 72px;
+  line-height: 56px;
+  font-size: 8px;
+  text-align: center;
+}
+
 .c-button__default {
   padding: 8px 24px;
   background-color: #50c878;
@@ -547,6 +556,10 @@ img {
     margin-right: auto;
     margin-left: auto;
   }
+}
+
+.c-container {
+  width: 100%;
 }
 
 .c-form__container {
@@ -661,5 +674,9 @@ img {
   .p-toggleMenu {
     width: 30vw;
   }
+}
+
+.p-footerText {
+  font-size: 8px;
 }
 

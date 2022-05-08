@@ -25,12 +25,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @include('layouts.shop.header')
     <div id="app">
-        @include('layouts.shop.header')
-
         <main class="l-main">
             @yield('content')
         </main>
     </div>
+    @include('layouts.shop.footer')
 </body>
 </html>
