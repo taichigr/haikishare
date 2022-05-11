@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PrefectureSeeder extends Seeder
+class PrefecturesTableSeeder extends Seeder
 {
     private $prefectures = [
         '北海道',

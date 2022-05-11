@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,8 +52,12 @@ class Shop extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function prefecture(): HasOne
+    public function prefecture(): BelongsTo
     {
-        return $this->hasOne('App\Models\Prefecture');
+        return $this->belongsTo('App\Models\Prefecture');
+    }
+    public function products(): HasMany
+    {
+        return $this->hasMany("App\Models\Product");
     }
 }
