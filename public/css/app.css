@@ -605,6 +605,20 @@ img {
   text-align: right;
 }
 
+.c-pageTitle__container {
+  width: 100%;
+}
+
+.c-pageTitle__text {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .c-pageTitle__text {
+    font-size: 24px;
+  }
+}
+
 .p-menu {
   display: flex;
   width: 100%;

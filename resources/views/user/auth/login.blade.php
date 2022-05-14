@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="c-auth__container">
-    <div class="c-page-title__container">
-        <h2 class="c-page-title__text">ログイン</h2>
+    <div class="c-pageTitle__container">
+        <h2 class="c-pageTitle__text">ログイン</h2>
     </div>
 
     <div class="c-form__container">

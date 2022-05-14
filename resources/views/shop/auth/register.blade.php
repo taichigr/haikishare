@@ -1,8 +1,8 @@
 @extends('layouts.shop.app')
 @section('content')
 <div class="c-auth__container">
-    <div class="c-page-title__container">
-        <h2 class="c-page-title__text">会員登録 --コンビニ--</h2>
+    <div class="c-pageTitle__container">
+        <h2 class="c-pageTitle__text">会員登録 --コンビニ--</h2>
     </div>
 
     <div class="c-form__container">

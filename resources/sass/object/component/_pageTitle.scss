@@ -1,0 +1,11 @@
+.c-pageTitle {
+    &__container {
+        width: 100%;
+    }
+    &__text {
+        font-size: $font-size_l;
+        @media screen and (min-width:768px) {
+            font-size: $font-size-xl;
+        }
+    }
+}
