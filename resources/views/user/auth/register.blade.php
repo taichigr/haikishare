@@ -1,7 +1,7 @@
 @extends('layouts.user.app')
 
 @section('content')
-<div class="c-auth__container">
+<div class="c-container p-auth__container">
     <div class="c-pageTitle__container">
         <h2 class="c-pageTitle__text">会員登録</h2>
     </div>
@@ -14,10 +14,11 @@
                 <label for="name" class="c-form__label">名前</label>
 
                 <div class="c-form__inputContainer">
-                    <input id="name" type="text" class="c-form__input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="name" type="text" class="c-form__input @error('name') is-invalid @enderror" name="name"
+                        value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                     @error('name')
-                        @include('../../components/error_message')
+                    @include('../../components/error_message')
                     @enderror
                 </div>
             </div>
@@ -26,10 +27,11 @@
                 <label for="email" class="c-form__label">メールアドレス</label>
 
                 <div class="c-form__inputContainer">
-                    <input id="email" type="email" class="c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <input id="email" type="email" class="c-form__input @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
-                        @include('../../components/error_message')
+                    @include('../../components/error_message')
                     @enderror
                 </div>
             </div>
@@ -38,10 +40,11 @@
                 <label for="password" class="c-form__label">パスワード</label>
 
                 <div class="c-form__inputContainer">
-                    <input id="password" type="password" class="c-form__input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    <input id="password" type="password" class="c-form__input @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="new-password">
 
                     @error('password')
-                        @include('../../components/error_message')
+                    @include('../../components/error_message')
                     @enderror
                 </div>
             </div>
@@ -50,7 +53,8 @@
                 <label for="password-confirm" class="c-form__label">パスワード(確認)</label>
 
                 <div class="c-form__inputContainer">
-                    <input id="password-confirm" type="password" class="c-form__input" name="password_confirmation" required autocomplete="new-password">
+                    <input id="password-confirm" type="password" class="c-form__input" name="password_confirmation"
+                        required autocomplete="new-password">
                 </div>
             </div>
 

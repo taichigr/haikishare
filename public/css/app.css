@@ -544,21 +544,15 @@ img {
   opacity: 0.8;
 }
 
-.c-auth__container {
+.c-container {
   width: 100%;
   padding-right: 16px;
   padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
-  .c-auth__container {
-    width: 500px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-.c-container {
+.c-footerContainer {
   width: 100%;
 }
 
@@ -588,7 +582,20 @@ img {
   background-color: #eeeeee;
 }
 
-.c-form__selectbox {
+.c-form__inputNumber {
+  width: 25%;
+  padding: 8px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  font-family: "Nunito", sans-serif;
+}
+
+.c-form__inputNumber:focus {
+  outline: none;
+  background-color: #eeeeee;
+}
+
+.c-form__select {
   -webkit-appearance: auto;
      -moz-appearance: auto;
           appearance: auto;
@@ -617,6 +624,78 @@ img {
   .c-pageTitle__text {
     font-size: 24px;
   }
+}
+
+.c-list__group {
+  border-top: 1px solid #999;
+}
+
+.c-list__item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #999;
+}
+
+.c-content__title {
+  font-size: 20px;
+}
+
+.c-content__area {
+  width: 100%;
+}
+
+.c-content__card {
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 414px) {
+  .c-content__card {
+    width: 280px;
+  }
+}
+
+.c-content__imageContainer {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 414px) {
+  .c-content__imageContainer {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.c-content__image {
+  width: 100%;
+  height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 414px) {
+  .c-content__image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.c-content__body {
+  width: 100%;
+  padding-top: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 12px;
+}
+
+.c-content__text {
+  font-size: 0.9rem;
 }
 
 .p-menu {
@@ -703,5 +782,59 @@ img {
 
 .p-footerText {
   font-size: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-auth__container {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-mypage__container {
+    width: 700px;
+  }
+}
+
+.p-mypage__listWraper {
+  margin-top: 16px;
+}
+
+.p-mypage__showSellProduct {
+  margin-top: 50px;
+}
+
+.p-mypage__showSoldProduct {
+  margin-top: 16px;
+}
+
+.p-mypage__mypage__gridWrapper {
+  display: inline-block;
+}
+
+.arrow {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  color: #333333;
+  text-decoration: none;
+}
+
+.arrow::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-top: solid 2px #999;
+  border-right: solid 2px #999;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  margin-top: -4px;
+  transform: rotate(45deg);
+}
+
+.is-invalid {
+  border: 1px solid #ff0000;
 }
 

@@ -20,8 +20,10 @@ class CreateProductsTable extends Migration
             $table->foreign('shop_id')->references('id')->on('shops');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            // $table->unsignedBigInteger('stock_id');
+            // $table->foreign('stock_id')->references('id')->on('stocks');
             $table->integer('price');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

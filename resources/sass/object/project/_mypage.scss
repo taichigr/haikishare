@@ -1,0 +1,21 @@
+.p-mypage {
+    &__container {
+        @media screen and (min-width:768px){
+            width: 700px;
+        }
+    }
+    &__listWraper {
+        margin-top: $space_xl;
+    }
+    &__showSellProduct {
+        margin-top: $space_50;
+    }
+    &__showSoldProduct {
+        margin-top: $space_xl;
+    }
+    &__mypage__gridWrapper{
+        display: inline-block;
+        // grid-template-columns: repeat(3, 1fr);
+        // grid-auto-rows: 200px;
+    }
+}

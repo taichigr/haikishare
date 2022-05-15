@@ -150,6 +150,10 @@ return [
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'password_confirmation' => 'パスワード（確認）',
+        'shop_name' => 'コンビニ名',
+        'branch_name' => '支店名',
+        'prefecture_id' => '都道府県',
+        'address' => '都道府県以降の住所'
     ],
 
 ];

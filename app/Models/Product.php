@@ -19,7 +19,7 @@ class Product extends Model
         return $this->belongsTo('App\Models\Category');
     }
 
-    public function stock(): HasMany
+    public function stocks(): HasMany
     {
         return $this->hasMany('App\Models\Stock');
     }

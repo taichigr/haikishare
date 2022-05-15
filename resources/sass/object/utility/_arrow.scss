@@ -1,0 +1,20 @@
+.arrow {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    color: $font-color_default;
+    text-decoration: none;
+    &::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-top: solid 2px $border-color-default;
+        border-right: solid 2px $border-color-default;
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        margin-top: -4px;
+        transform: rotate(45deg);
+    }
+}

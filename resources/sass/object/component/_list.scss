@@ -1,0 +1,10 @@
+.c-list {
+    &__group {
+        border-top: 1px solid $border-color-default;
+    }
+    &__item {
+        padding-top: $space_m;
+        padding-bottom: $space_m;
+        border-bottom: 1px solid $border-color-default;
+    }
+}

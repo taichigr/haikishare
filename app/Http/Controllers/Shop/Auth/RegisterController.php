@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shop\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Shop;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'shop_name' => ['required', 'string', 'max:255'],
             'branch_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:shops'],
             'prefecture_id' => ['required', 'numeric', 'digits_between:1,2'],

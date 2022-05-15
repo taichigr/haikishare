@@ -43,7 +43,7 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     // ログイン認証後
     Route::resource('/home', 'HomeController', ['only' => 'index'])->middleware('auth:shop');
     // shopマイページ index, edit, update, destroy
-    Route::resource('/mypage', 'MypageController', ['except' => ['show', 'create', 'store']])->middleware('auth:shop');
+    Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:shop');
     // shopが出品する商品 create, store, edit, update, destory
     Route::resource('/product', 'ProductController', ['except' => ['index', 'show']])->middleware('auth:shop');
 
