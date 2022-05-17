@@ -5,6 +5,11 @@
     &__area {
         width: 100%;
     }
+    &__link {
+        &:hover {
+            opacity: 0.6;
+        }
+    }
     &__card {
         display: inline-block;
         border: 1px solid #999;

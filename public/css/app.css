@@ -644,6 +644,10 @@ img {
   width: 100%;
 }
 
+.c-content__link:hover {
+  opacity: 0.6;
+}
+
 .c-content__card {
   display: inline-block;
   border: 1px solid #999;

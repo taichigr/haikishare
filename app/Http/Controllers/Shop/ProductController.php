@@ -87,6 +87,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::where('id', $id)->first();
+        $categories = Category::get();
+        return view('shop.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -99,6 +102,28 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product = Product::where('id', $id)->first();
+        if ($request->image !== null) {
+            $image = $request->image;
+            $uniqueFileName = uniqid(rand()) . '.' . $image->getClientOriginalExtension();
+            $target_path = public_path('uploads/products/');
+            $image->move($target_path, $uniqueFileName);
+            $product->image = $uniqueFileName;
+        } else {
+            $uniqueFileName = '';
+        }
+
+        $product->shop_id = Auth::user()->id;
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->price = $request->price;
+        $product->save();
+        $stock = new Stock;
+        $stock->product_id = $product->id;
+        $stock->quantity = $request->stock;
+        $stock->save();
+
+        return redirect()->route('shop.mypage.index');
     }
 
     /**

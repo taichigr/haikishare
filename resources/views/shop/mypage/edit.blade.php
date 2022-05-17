@@ -39,7 +39,8 @@
             <div class="c-form__control">
                 <label for="prefecture_id" class="c-form__label">都道府県</label>
                 <div class="c-form__inputContainer">
-                    <select name="prefecture_id" class="c-form__select @error('address') is-invalid @enderror" required>
+                    <select name="prefecture_id" class="c-form__select @error('prefecture_id') is-invalid @enderror"
+                        required>
                         @foreach (config('pref') as $pref_id => $name)
                         <option value="{{ $pref_id }}" @if($shop->prefecture_id == $pref_id)
                             selected

@@ -23,4 +23,10 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Stock');
     }
+
+    public function stockQuantity()
+    {
+        $total = $this->stocks->sum('quantity');
+        return $total;
+    }
 }

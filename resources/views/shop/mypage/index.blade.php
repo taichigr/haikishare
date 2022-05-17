@@ -18,22 +18,25 @@
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($products as $product)
-                <div class="c-content__card">
-                    <div class="c-content__imageContainer">
-                        @if($product->image !== '')
-                        <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
-                            alt="{{$product->name}}">
-                        @else
-                        <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}" alt="noimage">
-                        @endif
+                <a class="c-content__link" href="{{ route('shop.product.edit', ['product' => $product->id]) }}">
+                    <div class="c-content__card">
+                        <div class="c-content__imageContainer">
+                            @if($product->image !== '')
+                            <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
+                                alt="{{$product->name}}">
+                            @else
+                            <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}"
+                                alt="noimage">
+                            @endif
+                        </div>
+                        <div class="c-content__body">
+                            <p class="c-content__text">
+                                {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
+                            <p class="c-content__text">{{$product->name}}</p>
+                            <p class="c-content__text">¥{{$product->price}}</p>
+                        </div>
                     </div>
-                    <div class="c-content__body">
-                        <p class="c-content__text">
-                            {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
-                        <p class="c-content__text">{{$product->name}}</p>
-                        <p class="c-content__text">¥{{$product->price}}</p>
-                    </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
