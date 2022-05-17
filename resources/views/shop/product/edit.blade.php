@@ -7,7 +7,7 @@
     </div>
 
     <div class="c-form__container">
-        <form method="POST" action="{{ route('shop.product.update', ['product' => $product->id]) }}"
+        <form id="update" method="POST" action="{{ route('shop.product.update', ['product' => $product->id]) }}"
             enctype='multipart/form-data'>
             @method('PATCH')
             @csrf
@@ -85,13 +85,20 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="c-form__buttonArea">
-                <button type="submit" class="c-button__default">
-                    商品登録
-                </button>
-            </div>
         </form>
+
+        <div class="c-form__buttonArea">
+            <button form="delete" type="submit" class="c-button__default--alert" onclick="return confirm('本当に削除しますか？')">
+                商品削除
+            </button>
+            <button form="update" type="submit" class="c-button__default">
+                商品登録
+            </button>
+            <form id="delete" method="POST" action="{{route('shop.product.destroy', ['product' => $product->id])}}">
+                @method('DELETE')
+                @csrf
+            </form>
+        </div>
     </div>
 </div>
 @endsection

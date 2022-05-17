@@ -544,6 +544,17 @@ img {
   opacity: 0.8;
 }
 
+.c-button__default--alert {
+  background-color: #af3787;
+  padding: 8px 24px;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.c-button__default--alert:hover {
+  opacity: 0.8;
+}
+
 .c-container {
   width: 100%;
   padding-right: 16px;

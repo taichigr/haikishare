@@ -6,4 +6,16 @@
     &:hover {
         opacity: 0.8;
     }
+    &--alert {
+    background-color: $main-color-reverse;
+    padding: $space_m $space_3l;
+    color: $font-color-white;
+    border-radius: $space_m;
+    &:hover {
+        opacity: 0.8;
+    }
+    }
 }
+// .c-button__default--alert {
+//     background-color: $main-color-reverse;
+// }
