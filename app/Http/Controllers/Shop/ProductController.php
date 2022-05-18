@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Shop;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -136,5 +137,12 @@ class ProductController extends Controller
         //
         $product->delete();
         return redirect()->route('shop.mypage.index');
+    }
+
+    public function sellIndex(Shop $shop)
+    {
+        $products = $shop->products()->paginate(5);
+        // dd($products);
+        return view('shop.product.sell', ['products' => $products]);
     }
 }

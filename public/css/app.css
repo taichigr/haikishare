@@ -713,6 +713,29 @@ img {
   font-size: 0.9rem;
 }
 
+.c-pagination {
+  width: 100%;
+  display: flex;
+  max-width: 24rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 20px;
+}
+
+.c-pagination__list {
+  display: list-item;
+  text-align: center;
+}
+
+.c-pagination__link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+}
+
 .p-menu {
   display: flex;
   width: 100%;
@@ -851,5 +874,13 @@ img {
 
 .is-invalid {
   border: 1px solid #ff0000;
+}
+
+.c-pagination .is-active {
+  opacity: 0.5;
+}
+
+.c-pagination .disabled {
+  opacity: 0.5;
 }
 

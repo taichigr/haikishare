@@ -1,0 +1,22 @@
+.c-pagination {
+    width: 100%;
+    display: flex;
+    max-width: 24rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    // list-style: none;
+    text-align: center;
+    font-size: $font-size-contentTitle;
+    &__list {
+        display: list-item;
+        text-align: center;
+    }
+    &__link {
+        // position: relative;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+    }
+}

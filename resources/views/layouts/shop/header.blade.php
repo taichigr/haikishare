@@ -11,36 +11,35 @@
             </button>
         </div>
         {{-- <div class="" id=""> --}}
-        {{-- </div> --}}
+            {{-- </div> --}}
     </nav>
     <!-- Right Side Of Navbar -->
     <ul class="p-toggleMenu js-toggle-menu">
         <!-- Authentication Links -->
         @unless (Auth::guard('shop')->check())
-            <li class="p-toggleMenu--item">
-                <a class="" href="{{ route('shop.login') }}">ログイン</a>
-            </li>
-            @if (Route::has('shop.register'))
-                <li class="p-toggleMenu__item">
-                    <a class="" href="{{ route('shop.register') }}">新規登録</a>
-                </li>
-            @endif
+        <li class="p-toggleMenu--item">
+            <a class="" href="{{ route('shop.login') }}">ログイン</a>
+        </li>
+        @if (Route::has('shop.register'))
+        <li class="p-toggleMenu__item">
+            <a class="" href="{{ route('shop.register') }}">新規登録</a>
+        </li>
+        @endif
         @else
-            <li class="p-toggleMenu__item">
-                <a id="" class="" href="#" role="button">
-                    {{ Auth::user()->name }} <span class=""></span>
-                </a>
-                <div class="">
-                    <a class="" href="{{ route('shop.logout') }}"
-                        onclick="event.preventDefault();
+        <li class="p-toggleMenu__item">
+            <a id="" class="" href="#" role="button">
+                {{ Auth::user()->name }} <span class=""></span>
+            </a>
+            <div class="">
+                <a class="" href="{{ route('shop.logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                        ログアウト
-                    </a>
-                    <form id="logout-form" action="{{ route('shop.logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
+                    ログアウト
+                </a>
+                <form id="logout-form" action="{{ route('shop.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
         @endunless
     </ul>
 </header>
