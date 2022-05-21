@@ -106,18 +106,7 @@
 </div>
 
 
-<br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br>
-<div style="background-color: red">
-    <li class="c-list__item"><a href="">商品情報編集</a></li>
-    <li class="c-list__item"><a href="">出品した商品の一覧表示</a></li>
-    <li class="c-list__item"><a href="">購入された商品の一覧表示</a></li>
-</div>
+
 
 
 @endsection
