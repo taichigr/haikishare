@@ -60,10 +60,6 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->image = $uniqueFileName;
         $product->save();
-        $stock = new Stock;
-        $stock->product_id = $product->id;
-        $stock->quantity = $request->stock;
-        $stock->save();
 
         return redirect()->route('shop.mypage.index');
     }
@@ -148,7 +144,7 @@ class ProductController extends Controller
 
     public function sellIndex(Shop $shop)
     {
-        $products = $shop->products()->paginate(5);
+        $products = $shop->products()->orderBy('updated_at', 'desc')->paginate(5);
         // dd($products);
         return view('shop.product.sell', ['products' => $products]);
     }
