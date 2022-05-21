@@ -1,6 +1,17 @@
 .c-content {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
     &__title {
         font-size: $font-size-contentTitle;
+    }
+    &__headlink {
+        line-height: 3;
+    }
+    &__headtext {
+        font-size: $font-size_s;
+        color: $gray;
     }
     &__area {
         width: 100%;
@@ -18,7 +29,7 @@
         min-height: 280px;
         overflow: hidden;
         @media screen and (min-width:414px){
-            width: 280px;
+            width: 300px;
             // height: 360px;
         }
     }
@@ -49,5 +60,10 @@
     }
     &__text {
         font-size: $font-size-base;
+    }
+    &__buttonArea {
+        margin-top: $space_3l;
+        display: flex;
+        justify-content: space-around;
     }
 }

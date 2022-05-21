@@ -14,58 +14,87 @@
     </div>
 
     <div class="p-mypage__showSellProduct">
-        <h3 class="c-content__title">出品した商品</h3>
+        <div class="c-content__header">
+            <h3 class="c-content__title">出品した商品</h3>
+            <a class="c-content__headlink" href="{{ route('shop.sellIndex', ['shop' => Auth::id()]) }}">
+                <p class="c-content__headtext">全件表示</p>
+            </a>
+        </div>
+
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($sellProducts as $product)
-                <a class="c-content__link" href="{{ route('shop.product.edit', ['product' => $product->id]) }}">
-                    <div class="c-content__card">
-                        <div class="c-content__imageContainer">
-                            @if($product->image !== '')
-                            <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
-                                alt="{{$product->name}}">
-                            @else
-                            <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}"
-                                alt="noimage">
+                <div class="c-content__card">
+                    <div class="c-content__imageContainer">
+                        @if($product->image !== '')
+                        <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
+                            alt="{{$product->name}}">
+                        @else
+                        <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}" alt="noimage">
+                        @endif
+                    </div>
+                    <div class="c-content__body">
+                        <p class="c-content__text">
+                            {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
+                        <p class="c-content__text">{{$product->name}}</p>
+                        <p class="c-content__text">¥{{$product->price}}</p>
+                        @if($product->user_id !== null)
+                        <p class="c-content__text">この商品は購入されました</p>
+                        @endif
+                        <div class="c-content__buttonArea">
+                            <a href="{{ route('shop.product.detail', ['product' => $product->id]) }}"
+                                class="c-button__default">
+                                商品詳細
+                            </a>
+                            @if($product->user_id == null)
+                            <a href="{{ route('shop.product.edit', ['product' => $product->id]) }}"
+                                class="c-button__default">
+                                編集する
+                            </a>
                             @endif
                         </div>
-                        <div class="c-content__body">
-                            <p class="c-content__text">
-                                {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
-                            <p class="c-content__text">{{$product->name}}</p>
-                            <p class="c-content__text">¥{{$product->price}}</p>
-                        </div>
                     </div>
-                </a>
+                </div>
                 @endforeach
             </div>
         </div>
     </div>
 
     <div class="p-mypage__showSoldProduct">
-        <h3 class="c-content__title">購入された商品</h3>
+        <div class="c-content__header">
+            <h3 class="c-content__title">購入された商品</h3>
+            <a class="c-content__headlink" href="{{ route('shop.soldIndex', ['shop' => Auth::id()]) }}">
+                <p class="c-content__headtext">全件表示</p>
+            </a>
+        </div>
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($soldProducts as $product)
-                <a class="c-content__link" href="{{ route('shop.product.edit', ['product' => $product->id]) }}">
-                    <div class="c-content__card">
-                        <div class="c-content__imageContainer">
-                            @if($product->image !== '')
-                            <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
-                                alt="{{$product->name}}">
-                            @else
-                            <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}"
-                                alt="noimage">
-                            @endif
-                        </div>
-                        <div class="c-content__body">
-                            <p class="c-content__text">
-                                {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
-                            <p class="c-content__text">{{$product->name}}</p>
-                            <p class="c-content__text">¥{{$product->price}}</p>
+                <div class="c-content__card">
+                    <div class="c-content__imageContainer">
+                        @if($product->image !== '')
+                        <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
+                            alt="{{$product->name}}">
+                        @else
+                        <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}" alt="noimage">
+                        @endif
+                    </div>
+                    <div class="c-content__body">
+                        <p class="c-content__text">
+                            {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
+                        <p class="c-content__text">{{$product->name}}</p>
+                        <p class="c-content__text">¥{{$product->price}}</p>
+                        @if($product->user_id !== null)
+                        <p class="c-content__text">この商品は購入されました</p>
+                        @endif
+                        <div class="c-content__buttonArea">
+                            <a href="{{ route('shop.product.edit', ['product' => $product->id]) }}"
+                                class="c-button__default">
+                                商品詳細
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
                 @endforeach
             </div>
         </div>

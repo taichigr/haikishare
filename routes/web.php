@@ -46,6 +46,9 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:shop');
     // shopが出品する商品 create, store, edit, update, destory
     Route::resource('/product', 'ProductController', ['except' => ['index', 'show']])->middleware('auth:shop');
+    // 商品詳細
+    Route::get('/product/{product}/detail', 'ProductController@detail')->name('product.detail')->middleware('auth:shop');
+
 
     // コンビニ側が見るコンビニが出品した商品一覧
     Route::get('/product/sell/{shop}', 'ProductController@sellIndex')->name('sellIndex')->middleware('auth:shop');

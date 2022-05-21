@@ -647,8 +647,22 @@ img {
   border-bottom: 1px solid #999;
 }
 
+.c-content__header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .c-content__title {
   font-size: 20px;
+}
+
+.c-content__headlink {
+  line-height: 3;
+}
+
+.c-content__headtext {
+  font-size: 12px;
+  color: #999;
 }
 
 .c-content__area {
@@ -670,7 +684,7 @@ img {
 
 @media screen and (min-width: 414px) {
   .c-content__card {
-    width: 280px;
+    width: 300px;
   }
 }
 
@@ -711,6 +725,12 @@ img {
 
 .c-content__text {
   font-size: 0.9rem;
+}
+
+.c-content__buttonArea {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .c-pagination {

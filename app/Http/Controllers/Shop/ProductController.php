@@ -89,8 +89,19 @@ class ProductController extends Controller
     {
         //
         $product = Product::where('id', $id)->first();
+        if ($product->user_id !== null) {
+            return redirect()->route('shop.mypage.index');
+        }
         $categories = Category::get();
         return view('shop.product.edit', ['product' => $product, 'categories' => $categories]);
+    }
+
+    public function detail($id)
+    {
+        //
+        $product = Product::where('id', $id)->first();
+        $categories = Category::get();
+        return view('shop.product.detail', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -118,10 +129,6 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->price = $request->price;
         $product->save();
-        $stock = new Stock;
-        $stock->product_id = $product->id;
-        $stock->quantity = $request->stock;
-        $stock->save();
 
         return redirect()->route('shop.mypage.index');
     }
