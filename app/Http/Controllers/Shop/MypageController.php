@@ -19,8 +19,21 @@ class MypageController extends Controller
     public function index()
     {
         //
-        $products = Product::where('shop_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->get();
-        return view('shop.mypage.index', ['products' => $products]);
+        // dd('ss');
+        // $sellProducts
+        $sellProducts = Product::where('shop_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->get();
+        // $soldProducts
+        $query = Product::query();
+        $query->where('shop_id', Auth::id())
+            ->whereNotNull('user_id')
+            ->take(5)
+            ->orderBy('updated_at', 'desc');
+        $soldProducts = $query->get();
+        // dd($soldProducts);
+        return view('shop.mypage.index', [
+            'sellProducts' => $sellProducts,
+            'soldProducts' => $soldProducts,
+        ]);
     }
 
     /**

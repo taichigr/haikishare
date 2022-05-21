@@ -47,9 +47,12 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     // shopが出品する商品 create, store, edit, update, destory
     Route::resource('/product', 'ProductController', ['except' => ['index', 'show']])->middleware('auth:shop');
 
-    // コンビニ側が出品した商品一覧(ユーザー側からもコンビニごとの出品をチェックするのでauthなし?)
+    // コンビニ側が見るコンビニが出品した商品一覧
     Route::get('/product/sell/{shop}', 'ProductController@sellIndex')->name('sellIndex')->middleware('auth:shop');
+    // コンビニが見る購入した商品一覧
+    Route::get('/product/sold/{shop}', 'ProductController@soldIndex')->name('soldIndex')->middleware('auth:shop');
     // // ログイン認証後
+
     // Route::middleware('auth:shop')->group(function () {
 
     //     // TOPページ

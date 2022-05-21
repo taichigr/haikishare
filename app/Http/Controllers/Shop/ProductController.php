@@ -145,4 +145,15 @@ class ProductController extends Controller
         // dd($products);
         return view('shop.product.sell', ['products' => $products]);
     }
+
+    public function soldIndex(Shop $shop)
+    {
+        $query = Product::query();
+        $query->where('shop_id', Auth::id())
+            ->whereNotNull('user_id')
+            ->take(5)
+            ->orderBy('updated_at', 'desc');
+        $products = $query->paginate(5);
+        return view('shop.product.sold', ['products' => $products]);
+    }
 }
