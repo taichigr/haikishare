@@ -79,9 +79,9 @@
                         :image-path='@json(asset('uploads/products/'.$product->image))'
                         @endif
                         @error('image')
-                        :error='is-invalid'
+                        :invalid='@json('is-invalid')'
                         @enderror
-                        ></preview-image>
+                    ></preview-image>
                 </div>
             </div>
         </form>

@@ -22,14 +22,19 @@
         }
     }
     &__card {
+        margin-right: $space_s;
+        margin-left: $space_s;
         display: inline-block;
         border: 1px solid #999;
         border-radius: $space_m;
         width: 100%;
         min-height: 280px;
         overflow: hidden;
+        // @media screen and (min-width:768px){
+        //     width: 280px;
+        // }
         @media screen and (min-width:414px){
-            width: 300px;
+            width: 280px;
             // height: 360px;
         }
     }

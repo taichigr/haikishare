@@ -1,12 +1,11 @@
 <template>
     <div>
-        preview-component
-        <img :src="imagePath" v-if="imagePath !== ''">
+        <img :src="ReceivedImagePath" v-if="ReceivedImagePath !== ''">
         <img :src="newImagePath" v-if="newImagePath !== ''">
         <input 
             id="image"
             type="file"
-            class="c-form__input"
+            :class="inputClass"
             name="image"
             value=""
             accept="image/*"
@@ -24,13 +23,13 @@ export default {
         isInvalid: {
             type: String,
             default: '',
-        }
+        },
     },
     data() {
         return {
-            imagePath: this.imagePath,
+            ReceivedImagePath: this.imagePath,
             newImagePath: '',
-            isInvalid: this.isInvalid,
+            isInvalid: this.invalid,
         }
     },
     methods: {
@@ -44,7 +43,8 @@ export default {
                     this.newImagePath = e.target.result;
                 };
                 reader.readAsDataURL(file);
-                this.imagePath = '';
+                this.ReceivedImagePath = '';
+                console.log(this.formId)
             }
         },
     },

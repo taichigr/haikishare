@@ -28,6 +28,8 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     // TOPページ
     Route::resource('home', 'HomeController', ['only' => 'index'])->middleware('auth:user');
     // ユーザー側で必要なページ（user/xxxxxx/のページ）。マイページ、プロフィール編集画面
+    Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:user');
+
 });
 
 // 管理者
