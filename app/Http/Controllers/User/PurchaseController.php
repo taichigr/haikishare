@@ -7,7 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MypageController extends Controller
+class PurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,9 @@ class MypageController extends Controller
     public function index()
     {
         //
-        $products = Product::where('user_id', Auth::id())->take(5)->get();
-        return view('user.mypage.index', ['products' => $products]);
+        $products = Product::where('user_id', Auth::id())->take(5)->orderBy('updated_at', 'desc')->paginate(5);
+
+        return view('user.purchased.index', ['products' => $products]);
     }
 
     /**

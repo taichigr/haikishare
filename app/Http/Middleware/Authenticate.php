@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 class Authenticate extends Middleware
 {
-    protected $user_route  = 'user.login';
+    protected $user_route = 'user.login';
     protected $shop_route = 'shop.login';
     /**
      * Get the path the user should be redirected to when they are not authenticated.
