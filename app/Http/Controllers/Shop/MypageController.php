@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class MypageController extends Controller
@@ -77,6 +78,9 @@ class MypageController extends Controller
     public function edit($id)
     {
         //
+        if($id != Auth::id()) {
+            return redirect('/');
+        }
         $shop = Shop::where('id', $id)->first();
         return view('shop.mypage.edit', ['shop' => $shop]);
     }
@@ -91,6 +95,9 @@ class MypageController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($id != Auth::id()) {
+            return redirect('/');
+        }
         $shop = Shop::where('id', $id)->first();
         if ($request->password && $request->password_confirmation) {
             // パスワードが入っているときの処理　
@@ -102,7 +109,7 @@ class MypageController extends Controller
                 'address' => ['required', 'string', 'max:255'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
-            $shop->password = $validatedData['password'];
+            $shop->password =  Hash::make($validatedData['password']);
         } else {
             // パスワードが入っていないときの処理
             $validatedData = $request->validate([

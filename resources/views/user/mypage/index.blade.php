@@ -22,12 +22,12 @@
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($products as $product)
-                    <card
+                    <user-card
                         :product='@json($product)'
                         :shop='@json($product->shop)'
-                        endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
-                        endpoint-edit='{{ route('shop.product.edit', ['product' => $product->id]) }}'
-                    ></card>
+                        endpoint-detail='{{ route('product.detail', ['product'=> $product->id]) }}'
+                        {{-- endpoint-edit='{{ route('user.product.edit', ['product' => $product->id]) }}' --}}
+                    ></user-card>
                 @endforeach
             </div>
         </div>

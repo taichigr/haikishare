@@ -14,6 +14,19 @@
 // 共通のランディングページ
 Route::get('/', 'FrontController@index')->name('top');
 
+// 商品一覧
+Route::get('/product', 'ProductController@index')->name('product.index');
+// 商品詳細 ユーザー
+Route::get('/product/{product}/detail', 'ProductController@detail')->name('product.detail');
+// 購入
+Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase')->middleware('auth:user');
+// キャンセル
+Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel');
+
+
+Route::resource('/product', 'ProductController', ['only' => ['index', 'show']]);
+
+
 // ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 

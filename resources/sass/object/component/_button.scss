@@ -13,8 +13,19 @@
     border-radius: $space_m;
     &:hover {
         opacity: 0.8;
+        }
     }
-    }
+    &--cancel {
+        background-color: $main-color-reverse;
+        font-size: $font-size_s;
+        padding: $space_m $space_m;
+        color: $font-color-white;
+        border-radius: $space_m;
+        line-height: 2;
+        &:hover {
+            opacity: 0.8;
+            }
+        }
 }
 // .c-button__default--alert {
 //     background-color: $main-color-reverse;

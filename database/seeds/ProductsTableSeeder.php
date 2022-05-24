@@ -20,6 +20,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 100,
                 'image' => 'image/donut-gfae760e52_640.jpg',
+                'expired_at' => now()->addDays(7),
             ],
             [
                 'name' => 'シュークリーム',
@@ -27,6 +28,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/choux-g2f4989241_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'カレー',
@@ -34,6 +36,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/curry-rice-gc5d4ab128_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => 'サラダ',
@@ -41,6 +44,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 8,
                 'price' => 120,
                 'image' => 'image/salad-g9a7c0354c_640.jpg',
+                'expired_at' => now()->addDays(3),
             ],
             [
                 'name' => '鮭おにぎり',
@@ -48,6 +52,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 1,
                 'price' => 70,
                 'image' => 'image/rice-ball-g3f2afba5f_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'ドーナツドーナッツ',
@@ -55,6 +60,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 100,
                 'image' => 'image/donut-gfae760e52_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => 'チョコシュークリーム',
@@ -62,6 +68,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/choux-g2f4989241_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'インドカレー',
@@ -69,6 +76,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/curry-rice-gc5d4ab128_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'シーザーサラダ',
@@ -76,6 +84,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 8,
                 'price' => 120,
                 'image' => 'image/salad-g9a7c0354c_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => '鮭おにぎり２個',
@@ -83,6 +92,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 1,
                 'price' => 70,
                 'image' => 'image/rice-ball-g3f2afba5f_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'プレーンドーナッツ',
@@ -90,6 +100,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 100,
                 'image' => 'image/donut-gfae760e52_640.jpg',
+                'expired_at' => now()->addDays(1),
             ],
             [
                 'name' => 'シューアイス',
@@ -97,6 +108,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/choux-g2f4989241_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => 'スパイスカレー',
@@ -104,6 +116,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 15,
                 'price' => 80,
                 'image' => 'image/curry-rice-gc5d4ab128_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => 'サラダチキン',
@@ -111,6 +124,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 8,
                 'price' => 120,
                 'image' => 'image/salad-g9a7c0354c_640.jpg',
+                'expired_at' => now()->addDays(2),
             ],
             [
                 'name' => '和風ツナマヨ',
@@ -118,6 +132,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 1,
                 'price' => 70,
                 'image' => 'image/rice-ball-g3f2afba5f_640.jpg',
+                'expired_at' => now()->addDays(3),
             ],
         ]);
     }

@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('price');
             $table->string('image')->nullable();
+            $table->dateTime('expired_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

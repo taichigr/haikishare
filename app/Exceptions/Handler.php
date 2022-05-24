@@ -65,6 +65,10 @@ class Handler extends ExceptionHandler
             return redirect()->guest(route('shop.login'));
         }
 
-        return redirect()->guest(route('login'));
+        if (in_array('user', $exception->guards())) {
+            return redirect()->guest(route('user.login'));
+        }
+
+        return redirect()->guest(route('user.login'));
     }
 }

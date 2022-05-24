@@ -18,9 +18,8 @@
         <p class="c-content__text">
             {{shop.name}}:{{shop.branch_name}}</p>
         <p class="c-content__text">{{product.name}}</p>
-        <p class="c-content__text">¥{{product.price}}</p>
+        <p class="c-content__text">¥{{product.price}} <span class="tag" v-if="product.user_id != null">購入済み</span></p>
 
-        <p class="c-content__text" v-if="product.user_id != null">この商品は購入されました</p>
 
         <div class="c-content__buttonArea">
             <a :href="endpointDetail"

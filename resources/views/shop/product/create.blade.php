@@ -27,7 +27,7 @@
 
                 <div class="c-form__inputContainer">
                     <select name="category_id" id="category_id"
-                        class="c-form__select @error('name') is-invalid @enderror">
+                        class="c-form__select @error('category_id') is-invalid @enderror">
                         <option value="" class="c-form__option">選択してください</option>
                         @foreach ($categories as $category)
                         <option value="{{ $category->id }}" class="c-form__option" @if(old('category_id')==$category->
@@ -59,8 +59,11 @@
                 <label for="image" class="c-form__label">画像</label>
                 {{-- TODO 編集.ファイルをアップロード　アップロード時、バリデーション、アップロードの際にストレージに保存。axios --}}
                 <div class="c-form__inputContainer">
-                    <input id="image" type="file" class="c-form__input  @error('image') is-invalid @enderror"
-                        name="image" value="{{ old('image') }}" autocomplete="image">
+                    <preview-image 
+                        @error('image')
+                        :invalid='@json('is-invalid')'
+                        @enderror
+                    ></preview-image>
                     @error('image')
                     @include('../../components/error_message')
                     @enderror
@@ -68,13 +71,11 @@
             </div>
 
             <div class="c-form__control">
-                <label for="stock" class="c-form__label">個数</label>
-                {{-- 在庫登録。初期は特に問題なくできるはず。編集時、に現在の在庫と計算せねばならん。編集した時、計算したものを表示。編集後、表示した時の差を計算する。DBに保存するのは差 --}}
+                <label for="expired_at" class="c-form__label">消費期限</label>
                 <div class="c-form__inputContainer">
-                    <input id="stock" type="number" class="c-form__inputNumber  @error('stock') is-invalid @enderror"
-                        name="stock" value="{{ old('stock') }}" required autocomplete="stock">
-                    個
-                    @error('stock')
+                    <input id="expired_at" type="datetime-local" class="c-form__input @error('expired_at') is-invalid @enderror"
+                        name="expired_at" value="{{ old('expired_at') }}" required autocomplete="expired_at">
+                    @error('expired_at')
                     @include('../../components/error_message')
                     @enderror
                 </div>

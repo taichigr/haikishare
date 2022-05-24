@@ -59,6 +59,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->price = $request->price;
         $product->image = $uniqueFileName;
+        $product->expired_at = $request->expired_at;
         $product->save();
 
         return redirect()->route('shop.mypage.index');
