@@ -16,6 +16,17 @@
                 </div>
             </form>
             @endif
+            @if($product->user_id == Auth::id())
+            <form method="post" action="{{ route('user.product.cancel') }}">
+                @csrf
+                <input name="product_id" type="hidden" value="{{$product->id}}">
+                <div class="c-form__buttonArea">
+                    <button type="submit" class="c-button__default--cancel" onclick="return confirm('キャンセルしますか')">
+                        キャンセル
+                    </button>
+                </div>
+            </form>
+            @endif
         </div>
 
         <div class="c-form__container">

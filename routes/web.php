@@ -18,13 +18,19 @@ Route::get('/', 'FrontController@index')->name('top');
 Route::get('/product', 'ProductController@index')->name('product.index');
 // 商品詳細 ユーザー
 Route::get('/product/{product}/detail', 'ProductController@detail')->name('product.detail');
-// 購入
-Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase')->middleware('auth:user');
-// キャンセル
-Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel');
 
 
-Route::resource('/product', 'ProductController', ['only' => ['index', 'show']]);
+
+// Route::resource('/product', 'ProductController', ['only' => ['index', 'show']]);
+
+
+// product
+Route::namespace('Product')->prefix('product')->name('product.')->group(function () {
+    // 商品一覧
+Route::get('/', 'ProductController@index')->name('index');
+// 商品詳細 ユーザー
+Route::get('/{product}/detail', 'ProductController@detail')->name('detail');
+});
 
 
 // ユーザー
@@ -43,7 +49,14 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     // ユーザー側で必要なページ（user/xxxxxx/のページ）。マイページ、プロフィール編集画面
     Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:user');
 
-    Route::get('/purchased', 'PurchaseController@index')->name('purchased.index')->middleware('auth:user');
+    Route::get('/purchased', 'ProductController@purchaseIndex')->name('purchased.index')->middleware('auth:user');
+
+    // 購入
+    Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase')->middleware('auth:user');
+    // キャンセル
+    Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel')->middleware('auth:user');
+
+    // 商品一覧画面
 
 
 

@@ -1,0 +1,38 @@
+.p-show {
+    &__container {
+
+        @media screen and (min-width:768px){
+            width: 760px;
+        }
+        @media screen and (min-width:1000px){
+            width: 1000px;
+        }
+    }
+    &__listWraper {
+        margin-top: $space_xl;
+    }
+    &__showSellProduct {
+        margin-top: $space_50;
+    }
+    &__showSoldProduct {
+        margin-top: $space_xl;
+    }
+    &__gridWrapper{
+        display: inline-block;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+        text-align: center;
+
+        @media screen and (min-width:768px){
+            display: inline-block;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
+        }
+        @media screen and (min-width:1000px){
+            display: block;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
+        }
+    }
+}
+// TODO mypage__grindWrapper content__cardのwidthをいじる

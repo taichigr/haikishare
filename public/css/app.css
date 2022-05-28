@@ -535,10 +535,11 @@ img {
 }
 
 .c-button__default {
-  padding: 8px 24px;
+  padding: 8px 20px;
   background-color: #50c878;
   color: #fff;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .c-button__default:hover {
@@ -563,6 +564,7 @@ img {
   color: #fff;
   border-radius: 8px;
   line-height: 2;
+  cursor: pointer;
 }
 
 .c-button__default--cancel:hover {
@@ -694,6 +696,7 @@ img {
   border: 1px solid #999;
   border-radius: 8px;
   width: 100%;
+  min-width: 185px;
   min-height: 280px;
   overflow: hidden;
 }
@@ -907,6 +910,53 @@ img {
 @media screen and (min-width: 1000px) {
   .p-mypage__gridWrapper {
     display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-show__container {
+    width: 760px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .p-show__container {
+    width: 1000px;
+  }
+}
+
+.p-show__listWraper {
+  margin-top: 16px;
+}
+
+.p-show__showSellProduct {
+  margin-top: 50px;
+}
+
+.p-show__showSoldProduct {
+  margin-top: 16px;
+}
+
+.p-show__gridWrapper {
+  display: inline-block;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .p-show__gridWrapper {
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .p-show__gridWrapper {
+    display: block;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 200px;
   }

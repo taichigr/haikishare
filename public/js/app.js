@@ -2132,6 +2132,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: {
@@ -2142,11 +2149,19 @@ __webpack_require__.r(__webpack_exports__);
       type: Array,
       "default": []
     },
+    authUserId: {
+      type: String,
+      "default": ''
+    },
     endpointDetail: {
       type: String,
       "default": []
     },
     endpointEdit: {
+      type: String,
+      "default": []
+    },
+    endpointPurchase: {
       type: String,
       "default": []
     }
@@ -2155,8 +2170,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       product: this.product,
       shop: this.shop,
+      authUserId: this.authUserId,
       endpointDetail: this.endpointDetail,
-      endpointEdit: this.endpointEdit
+      endpointEdit: this.endpointEdit,
+      endpointPurchase: this.endpointPurchase,
+      cancelFormId: 'cancel' + this.product.id,
+      purchaseFormId: 'purchase' + this.product.id
     };
   },
   methods: {},
@@ -37932,7 +37951,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "c-content__card" }, [
+  return _c("div", [
     _c("div", { staticClass: "c-content__imageContainer" }, [
       _vm.product.image !== ""
         ? _c("img", {
@@ -37967,13 +37986,10 @@ var render = function () {
       _vm._v(" "),
       _c("p", { staticClass: "c-content__text" }, [
         _vm._v("¥" + _vm._s(_vm.product.price)),
+        _vm.product.user_id != null
+          ? _c("span", { staticClass: "tag" }, [_vm._v("購入済み")])
+          : _vm._e(),
       ]),
-      _vm._v(" "),
-      _vm.product.user_id != null
-        ? _c("p", { staticClass: "c-content__text" }, [
-            _vm._v("この商品は購入されました"),
-          ])
-        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "c-content__buttonArea" }, [
         _c(
@@ -37985,14 +38001,35 @@ var render = function () {
           [_vm._v("\n                詳細\n            ")]
         ),
         _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "c-button__default--cancel",
-            attrs: { href: _vm.endpointCancel },
-          },
-          [_vm._v("\n                キャンセル\n            ")]
-        ),
+        _vm.product.user_id == _vm.authUserId
+          ? _c(
+              "button",
+              {
+                staticClass: "c-button__default--cancel",
+                attrs: {
+                  form: _vm.cancelFormId,
+                  type: "submit",
+                  href: _vm.endpointCancel,
+                },
+              },
+              [_vm._v("\n                キャンセル\n            ")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.product.user_id != _vm.authUserId
+          ? _c(
+              "button",
+              {
+                staticClass: "c-button__default",
+                attrs: {
+                  form: _vm.purchaseFormId,
+                  type: "submit",
+                  href: _vm.endpointParchase,
+                },
+              },
+              [_vm._v("\n                商品購入\n            ")]
+            )
+          : _vm._e(),
       ]),
     ]),
   ])

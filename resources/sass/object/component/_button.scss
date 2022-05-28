@@ -1,8 +1,9 @@
 .c-button__default {
-    padding: $space_m $space_3l;
+    padding: $space_m $space_xxl;
     background-color: $main-color;
     color: $font-color-white;
     border-radius: $space_m;
+    cursor: pointer;
     &:hover {
         opacity: 0.8;
     }
@@ -22,6 +23,7 @@
         color: $font-color-white;
         border-radius: $space_m;
         line-height: 2;
+        cursor: pointer;
         &:hover {
             opacity: 0.8;
             }

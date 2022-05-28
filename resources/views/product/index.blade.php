@@ -1,26 +1,26 @@
 @extends('layouts.user.app')
 @section('content')
-<div class="c-container p-mypage__container">
+<div class="c-container p-show__container">
     <div class="c-pageTitle__container">
-        <h2 class="c-pageTitle__text">マイページ</h2>
+        <h2 class="c-pageTitle__text">商品一覧</h2>
     </div>
 
-    <div class="c-list__wraper p-mypage__listWraper">
+    <div class="c-list__wraper p-show__listWraper">
         <ul class="c-list__group">
-            <li class="c-list__item"><a class="arrow"
-                    href="{{ route('user.mypage.edit',['mypage' => Auth::id()]) }}">ユーザ情報の編集</a></li>
+            @if(Auth::check())
+            <li class="c-list__item">
+                <a class="arrow" href="{{ route('user.mypage.edit',['mypage' => Auth::id()]) }}">ユーザ情報の編集</a>
+            </li>
+            @endif
         </ul>
     </div>
 
-    <div class="p-mypage__showSellProduct">
+    <div class="p-show__showSellProduct">
         <div class="c-content__header">
-            <h3 class="c-content__title">購入した商品</h3>
-            <a class="c-content__headlink" href="{{ route('user.purchased.index') }}">
-                <p class="c-content__headtext">全件表示</p>
-            </a>
+            <h3 class="c-content__title">商品一覧</h3>
         </div>
         <div class="c-content__area">
-            <div class="p-mypage__gridWrapper">
+            <div class="p-show__gridWrapper">
                 @foreach ($products as $product)
                 <div class="c-content__card">
                     <user-card
@@ -29,7 +29,7 @@
                         :auth-user-id='@json(Auth::id())'
                         endpoint-detail='{{ route('product.detail', ['product'=> $product->id]) }}'
                         endpoint-purchase='{{ route('user.product.purchase', ['product'=> $product->id]) }}'
-                        endpoint-cancel='{{ route('user.product.cancel', ['product' => $product->id]) }}'
+                        {{-- endpoint-edit='{{ route('user.product.edit', ['product' => $product->id]) }}' --}}
                     ></user-card>
                     <form
                         id="cancel{{$product->id}}"
@@ -52,10 +52,7 @@
             </div>
         </div>
     </div>
-
-
-
-
+    {{ $products->links() }}
 
 </div>
 
