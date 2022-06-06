@@ -1,7 +1,7 @@
 <header class="l-header">
     <nav class="p-menu">
         <div class="p-menu__logoContainer">
-            <a class="" href="{{ url('/') }}">
+            <a class="" href="{{ route('product.index') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         </div>
@@ -27,9 +27,6 @@
             @endif
         @else
             <li class="p-toggleMenu__item">
-                <a id="" class="" href="#" role="button">
-                    {{ Auth::user()->name }} <span class=""></span>
-                </a>
                 <div class="">
                     <a class="" href="{{ route('user.logout') }}"
                         onclick="event.preventDefault();
@@ -41,6 +38,12 @@
                     </form>
                 </div>
             </li>
+            <li class="p-toggleMenu__item">
+                <a class="" href="{{ route('user.mypage.index') }}">マイページ</a>
+            </li>
         @endunless
+        <li class="p-toggleMenu__item">
+            <a class="" href="{{ route('product.index') }}">商品一覧</a>
+        </li>
     </ul>
 </header>

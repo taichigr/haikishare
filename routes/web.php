@@ -56,6 +56,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     // キャンセル
     Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel')->middleware('auth:user');
 
+
     // 商品一覧画面
 
 
@@ -89,6 +90,8 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     // コンビニが見る購入した商品一覧
     Route::get('/product/sold/{shop}', 'ProductController@soldIndex')->name('soldIndex')->middleware('auth:shop');
     // // ログイン認証後
+    // 受け取り
+    Route::post('/product/receive', 'ProductController@receive')->name('product.receive')->middleware('auth:shop');
 
     // Route::middleware('auth:shop')->group(function () {
 

@@ -1,5 +1,5 @@
 <template>
-<div class="c-content__card">
+<div>
     <div class="c-content__imageContainer">
         <img
             v-if="product.image !== ''"
@@ -30,6 +30,23 @@
                 class="c-button__default">
                 編集
             </a>
+            <button
+                :form="receiveFormId"
+                type="submit"
+                :href="endpointReceive"
+                v-if="product.user_id !== null && product.receive_flg == 0"
+                class="c-button__default"
+            >
+                受け取り完了
+            </button>
+            <button
+                type="submit"
+                :href="endpointReceive"
+                v-if="product.receive_flg == 1"
+                class="c-button__default--gray"
+                disabled
+            >受取済</button>
+
         </div>
     </div>
 </div>
@@ -54,6 +71,10 @@ export default {
             type: String,
             default: [],
         },
+        endpointReceive: {
+            type: String,
+            default: [],
+        },
     },
     data() {
         return {
@@ -61,6 +82,8 @@ export default {
             shop: this.shop,
             endpointDetail: this.endpointDetail,
             endpointEdit: this.endpointEdit,
+            endpointReceive: this.endpointReceive,
+            receiveFormId: 'receive' + this.product.id,
         }
     },
     methods: {

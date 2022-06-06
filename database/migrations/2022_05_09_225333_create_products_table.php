@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('image')->nullable();
             $table->dateTime('expired_at')->nullable();
+            $table->boolean('receive_flg')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

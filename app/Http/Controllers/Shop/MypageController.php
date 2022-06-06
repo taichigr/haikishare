@@ -17,12 +17,15 @@ class MypageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側マイページ表示
     public function index()
     {
         //
         // dd('ss');
         // $sellProducts
-        $sellProducts = Product::where('shop_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->get();
+        $query = Product::query();
+        $query->where('receive_flg', 0);
+        $sellProducts = $query->where('shop_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->get();
         // $soldProducts
         $query = Product::query();
         $query->where('shop_id', Auth::id())

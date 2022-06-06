@@ -19,25 +19,14 @@
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($products as $product)
-                <a class="c-content__link" href="{{ route('shop.product.edit', ['product' => $product->id]) }}">
-                    <div class="c-content__card">
-                        <div class="c-content__imageContainer">
-                            @if($product->image !== '')
-                            <img class="c-content__image" src="{{ asset('uploads/products/'.$product->image) }}"
-                                alt="{{$product->name}}">
-                            @else
-                            <img class="c-content__image" src="{{ asset('uploads/products/noimage.jpeg') }}"
-                                alt="noimage">
-                            @endif
-                        </div>
-                        <div class="c-content__body">
-                            <p class="c-content__text">
-                                {{$product->shop->name}}:{{$product->shop->branch_name}}</p>
-                            <p class="c-content__text">{{$product->name}}</p>
-                            <p class="c-content__text">¥{{$product->price}}</p>
-                        </div>
-                    </div>
-                </a>
+                <div class="c-content__card">
+                    <shop-card
+                        :product='@json($product)'
+                        :shop='@json($product->shop)'
+                        endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
+                        endpoint-edit='{{ route('shop.product.edit', ['product' => $product->id]) }}'
+                    ></shop-card>
+                </div>
                 @endforeach
             </div>
             {{ $products->links() }}
@@ -48,20 +37,6 @@
 
 
 
-</div>
-
-
-<br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br>
-<div style="background-color: red">
-    <li class="c-list__item"><a href="">商品情報編集</a></li>
-    <li class="c-list__item"><a href="">出品した商品の一覧表示</a></li>
-    <li class="c-list__item"><a href="">購入された商品の一覧表示</a></li>
 </div>
 
 

@@ -2053,6 +2053,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: {
@@ -2070,6 +2087,10 @@ __webpack_require__.r(__webpack_exports__);
     endpointEdit: {
       type: String,
       "default": []
+    },
+    endpointReceive: {
+      type: String,
+      "default": []
     }
   },
   data: function data() {
@@ -2077,7 +2098,9 @@ __webpack_require__.r(__webpack_exports__);
       product: this.product,
       shop: this.shop,
       endpointDetail: this.endpointDetail,
-      endpointEdit: this.endpointEdit
+      endpointEdit: this.endpointEdit,
+      endpointReceive: this.endpointReceive,
+      receiveFormId: 'receive' + this.product.id
     };
   },
   methods: {},
@@ -2095,6 +2118,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2179,7 +2213,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {},
-  computed: {}
+  computed: {
+    authUser: function authUser() {
+      // ログインしていないユーザーにゲストという文字列付与
+      var auth = this.authUserId;
+
+      if (this.authUserId == null) {
+        auth = 'guest';
+      }
+
+      return auth;
+    }
+  }
 });
 
 /***/ }),
@@ -37865,7 +37910,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "c-content__card" }, [
+  return _c("div", [
     _c("div", { staticClass: "c-content__imageContainer" }, [
       _vm.product.image !== ""
         ? _c("img", {
@@ -37923,6 +37968,36 @@ var render = function () {
                 attrs: { href: _vm.endpointEdit },
               },
               [_vm._v("\n                編集\n            ")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.product.user_id !== null && _vm.product.receive_flg == 0
+          ? _c(
+              "button",
+              {
+                staticClass: "c-button__default",
+                attrs: {
+                  form: _vm.receiveFormId,
+                  type: "submit",
+                  href: _vm.endpointReceive,
+                },
+              },
+              [_vm._v("\n                受け取り完了\n            ")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.product.receive_flg == 1
+          ? _c(
+              "button",
+              {
+                staticClass: "c-button__default--gray",
+                attrs: {
+                  type: "submit",
+                  href: _vm.endpointReceive,
+                  disabled: "",
+                },
+              },
+              [_vm._v("受取済")]
             )
           : _vm._e(),
       ]),
@@ -38001,7 +38076,7 @@ var render = function () {
           [_vm._v("\n                詳細\n            ")]
         ),
         _vm._v(" "),
-        _vm.product.user_id == _vm.authUserId
+        _vm.product.user_id == _vm.authUser && _vm.product.receive_flg == 0
           ? _c(
               "button",
               {
@@ -38016,7 +38091,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.product.user_id != _vm.authUserId
+        _vm.product.user_id == null
           ? _c(
               "button",
               {
@@ -38028,6 +38103,21 @@ var render = function () {
                 },
               },
               [_vm._v("\n                商品購入\n            ")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.product.receive_flg == 1
+          ? _c(
+              "button",
+              {
+                staticClass: "c-button__default--gray",
+                attrs: {
+                  type: "submit",
+                  href: _vm.endpointReceive,
+                  disabled: "",
+                },
+              },
+              [_vm._v("受取済")]
             )
           : _vm._e(),
       ]),

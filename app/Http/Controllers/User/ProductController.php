@@ -82,7 +82,9 @@ class ProductController extends Controller
         if(!Auth::check()) {
             return redirect()->route('user.login');
         }
-        $product = Product::where('id', $request->product_id)->first();
+        $query = Product::query();
+        $query->where('receive_flg', 0);
+        $product = $query->where('id', $request->product_id)->first();
         $product->user_id = Auth::id();
         $product->save();
         // return redirect()->route('product.index');
@@ -91,7 +93,9 @@ class ProductController extends Controller
     public function purchaseIndex()
     {
         //
-        $products = Product::where('user_id', Auth::id())->take(5)->orderBy('updated_at', 'desc')->paginate(5);
+        $query = Product::query();
+        $query->where('receive_flg', 0);
+        $products = $query->where('user_id', Auth::id())->take(5)->orderBy('updated_at', 'desc')->paginate(5);
 
         return view('user.purchased.index', ['products' => $products]);
     }

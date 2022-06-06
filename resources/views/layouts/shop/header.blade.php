@@ -40,6 +40,9 @@
                 </form>
             </div>
         </li>
+        <li class="p-toggleMenu__item">
+            <a class="" href="{{ route('shop.mypage.index') }}">マイページ</a>
+        </li>
         @endunless
     </ul>
 </header>

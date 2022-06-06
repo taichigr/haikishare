@@ -153,11 +153,26 @@ class ProductController extends Controller
     public function soldIndex(Shop $shop)
     {
         $query = Product::query();
+        $query->where('receive_flg', 0);
         $query->where('shop_id', Auth::id())
             ->whereNotNull('user_id')
             ->take(5)
             ->orderBy('updated_at', 'desc');
         $products = $query->paginate(5);
         return view('shop.product.sold', ['products' => $products]);
+    }
+
+    public function receive(Request $request)
+    {
+        if(!Auth::check()) {
+            return redirect()->route('shop.login');
+        }
+        $query = Product::query();
+        $product = $query->where('id', $request->product_id)
+                        ->first();
+        $product->receive_flg = 1;
+        $product->save();
+        // return redirect()->route('product.index');
+        return back();
     }
 }

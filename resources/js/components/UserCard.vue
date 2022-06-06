@@ -28,22 +28,32 @@
                 :form="cancelFormId"
                 type="submit"
                 :href="endpointCancel"
-                class="c-button__default--cancel" v-if="product.user_id == authUserId">
+                class="c-button__default--cancel"
+                v-if="product.user_id == authUser && product.receive_flg == 0"
+            >
                 キャンセル
             </button>
             <button
                 :form="purchaseFormId"
                 type="submit"
                 :href="endpointParchase"
-                class="c-button__default" v-if="product.user_id != authUserId">
+                class="c-button__default"
+                v-if="product.user_id == null"
+            >
                 商品購入
             </button>
+            <button
+                type="submit"
+                :href="endpointReceive"
+                v-if="product.receive_flg == 1"
+                class="c-button__default--gray"
+                disabled
+            >受取済</button>
         </div>
     </div>
 </div>
 </template>
 <script>
-
 export default {
     props: {
         product: {
@@ -87,7 +97,14 @@ export default {
         
     },
     computed: {
-        
+        authUser() {
+            // ログインしていないユーザーにゲストという文字列付与
+            let auth = this.authUserId;
+            if(this.authUserId == null) {
+                auth = 'guest';
+            }
+            return auth;
+        }
     }
 }
 </script>

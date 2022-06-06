@@ -58,7 +58,6 @@
 
 <div class="c-form__control">
     <label for="stock" class="c-form__label">個数</label>
-    {{-- 在庫登録。初期は特に問題なくできるはず。編集時、に現在の在庫と計算せねばならん。編集した時、計算したものを表示。編集後、表示した時の差を計算する。DBに保存するのは差 --}}
     <div class="c-form__inputContainer">
         <input id="stock" type="number" class="c-form__inputNumber  @error('stock') is-invalid @enderror" name="stock"
             value="{{ old('stock') }}" required autocomplete="stock">

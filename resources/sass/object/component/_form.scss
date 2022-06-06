@@ -52,5 +52,9 @@
         margin-top: $space_3l;
         width: 100%;
         text-align: right;
+        &--search {
+            text-align: center;
+            margin-top: $space_l;
+        }
     }
 }

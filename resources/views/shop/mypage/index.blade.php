@@ -23,12 +23,22 @@
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($sellProducts as $product)
+                <div class="c-content__card">
                     <shop-card
                         :product='@json($product)'
                         :shop='@json($product->shop)'
                         endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
                         endpoint-edit='{{ route('shop.product.edit', ['product' => $product->id]) }}'
                     ></shop-card>
+                    <form
+                        id="receive{{$product->id}}"
+                        method="post"
+                        action="{{ route('shop.product.receive') }}"
+                    >
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    </form>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -44,11 +54,13 @@
         <div class="c-content__area">
             <div class="p-mypage__gridWrapper">
                 @foreach ($soldProducts as $product)
-                <shop-card
-                    :product='@json($product)'
-                    :shop='@json($product->shop)'
-                    endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
-                ></shop-card>
+                <div class="c-content__card">
+                    <shop-card
+                        :product='@json($product)'
+                        :shop='@json($product->shop)'
+                        endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
+                    ></shop-card>
+                </div>
                 @endforeach
             </div>
         </div>

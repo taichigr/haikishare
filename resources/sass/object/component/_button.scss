@@ -27,7 +27,13 @@
         &:hover {
             opacity: 0.8;
             }
-        }
+    }
+    &--gray {
+        background-color: $gray;
+        padding: $space_m $space_xxl;
+        color: $font-color-white;
+        border-radius: $space_m;
+    }
 }
 // .c-button__default--alert {
 //     background-color: $main-color-reverse;
