@@ -2203,6 +2203,10 @@ __webpack_require__.r(__webpack_exports__);
     endpointPurchase: {
       type: String,
       "default": []
+    },
+    imageSrc: {
+      type: String,
+      "default": ''
     }
   },
   data: function data() {
@@ -2214,7 +2218,8 @@ __webpack_require__.r(__webpack_exports__);
       endpointEdit: this.endpointEdit,
       endpointPurchase: this.endpointPurchase,
       cancelFormId: 'cancel' + this.product.id,
-      purchaseFormId: 'purchase' + this.product.id
+      purchaseFormId: 'purchase' + this.product.id,
+      imagePath: this.imageSrc + '/' + this.product.image
     };
   },
   methods: {},
@@ -38033,10 +38038,7 @@ var render = function () {
       _vm.product.image !== ""
         ? _c("img", {
             staticClass: "c-content__image",
-            attrs: {
-              src: "/uploads/products/" + _vm.product.image,
-              alt: _vm.product.name,
-            },
+            attrs: { src: _vm.imagePath, alt: _vm.product.name },
           })
         : _c("img", {
             staticClass: "c-content__image",

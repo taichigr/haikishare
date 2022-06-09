@@ -4,7 +4,7 @@
         <img
             v-if="product.image !== ''"
             class="c-content__image"
-            :src="'/uploads/products/' + product.image"
+            :src='imagePath'
             :alt='product.name'
         >
         <img
@@ -80,6 +80,10 @@ export default {
             type: String,
             default: [],
         },
+        imageSrc: {
+            type: String,
+            default: '',
+        }
     },
     data() {
         return {
@@ -91,6 +95,7 @@ export default {
             endpointPurchase: this.endpointPurchase,
             cancelFormId: 'cancel' + this.product.id,
             purchaseFormId: 'purchase' + this.product.id,
+            imagePath: this.imageSrc + '/' + this.product.image,
         }
     },
     methods: {

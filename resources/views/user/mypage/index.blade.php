@@ -24,6 +24,7 @@
                 @foreach ($products as $product)
                 <div class="c-content__card">
                     <user-card
+                        image-src='{{ asset('storage/uploads/products') }}'
                         :product='@json($product)'
                         :shop='@json($product->shop)'
                         :auth-user-id='@json(Auth::id())'

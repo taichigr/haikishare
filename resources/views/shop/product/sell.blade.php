@@ -21,6 +21,7 @@
                 @foreach ($products as $product)
                 <div class="c-content__card">
                     <shop-card
+                        image-src='{{ asset('storage/uploads/products') }}'
                         :product='@json($product)'
                         :shop='@json($product->shop)'
                         endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
