@@ -47,7 +47,7 @@ class ProductController extends Controller
         if ($request->image !== null) {
             $image = $request->image;
             $uniqueFileName = uniqid(rand()) . '.' . $image->getClientOriginalExtension();
-            $target_path = public_path('uploads/products/');
+            $target_path = public_path('storage/uploads/products/');
             $image->move($target_path, $uniqueFileName);
         } else {
             $uniqueFileName = '';
@@ -114,7 +114,7 @@ class ProductController extends Controller
         if ($request->image !== null) {
             $image = $request->image;
             $uniqueFileName = uniqid(rand()) . '.' . $image->getClientOriginalExtension();
-            $target_path = public_path('uploads/products/');
+            $target_path = public_path('storage/uploads/products/');
             $image->move($target_path, $uniqueFileName);
             $product->image = $uniqueFileName;
         } else {

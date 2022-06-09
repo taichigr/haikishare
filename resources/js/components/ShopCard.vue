@@ -4,7 +4,7 @@
         <img
             v-if="product.image !== ''"
             class="c-content__image"
-            :src="'/uploads/products/' + product.image"
+            :src='imagePath'
             :alt='product.name'
         >
         <img
@@ -65,16 +65,20 @@ export default {
         },
         endpointDetail: {
             type: String,
-            default: [],
+            default: '',
         },
         endpointEdit: {
             type: String,
-            default: [],
+            default: '',
         },
         endpointReceive: {
             type: String,
-            default: [],
+            default: '',
         },
+        imageSrc: {
+            type: String,
+            default: '',
+        }
     },
     data() {
         return {
@@ -84,6 +88,7 @@ export default {
             endpointEdit: this.endpointEdit,
             endpointReceive: this.endpointReceive,
             receiveFormId: 'receive' + this.product.id,
+            imagePath: this.imageSrc + '/' + this.product.image,
         }
     },
     methods: {

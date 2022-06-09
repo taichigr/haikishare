@@ -2082,15 +2082,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     endpointDetail: {
       type: String,
-      "default": []
+      "default": ''
     },
     endpointEdit: {
       type: String,
-      "default": []
+      "default": ''
     },
     endpointReceive: {
       type: String,
-      "default": []
+      "default": ''
+    },
+    imageSrc: {
+      type: String,
+      "default": ''
     }
   },
   data: function data() {
@@ -2100,7 +2104,8 @@ __webpack_require__.r(__webpack_exports__);
       endpointDetail: this.endpointDetail,
       endpointEdit: this.endpointEdit,
       endpointReceive: this.endpointReceive,
-      receiveFormId: 'receive' + this.product.id
+      receiveFormId: 'receive' + this.product.id,
+      imagePath: this.imageSrc + '/' + this.product.image
     };
   },
   methods: {},
@@ -37915,10 +37920,7 @@ var render = function () {
       _vm.product.image !== ""
         ? _c("img", {
             staticClass: "c-content__image",
-            attrs: {
-              src: "/uploads/products/" + _vm.product.image,
-              alt: _vm.product.name,
-            },
+            attrs: { src: _vm.imagePath, alt: _vm.product.name },
           })
         : _c("img", {
             staticClass: "c-content__image",
