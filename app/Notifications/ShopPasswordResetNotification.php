@@ -25,12 +25,11 @@ class ShopPasswordResetNotification extends ResetPasswordNotification
         return (new MailMessage)
                     ->subject('パスワードリセット通知 shop')
                     ->view('emails.shop.password_reset', [
-                        'reset_url' => url(config('app.url').route('shop.password.reset',
+                        'reset_url' => route('shop.password.reset',
                         [
                             'token' => $this->token,
                             'email' => $notifiable->getEmailForPasswordReset()
-                        ],
-                            false))
+                        ])
                     ]);
     }
 }

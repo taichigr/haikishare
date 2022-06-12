@@ -28,12 +28,11 @@ class PasswordResetNotification extends ResetPassword
         return (new MailMessage)
                     ->subject('パスワードリセット通知')
                     ->view('emails.user.password_reset', [
-                        'reset_url' => url(config('app.url').route('user.password.reset',
+                        'reset_url' => route('user.password.reset',
                         [
                             'token' => $this->token,
                             'email' => $notifiable->getEmailForPasswordReset()
-                        ],
-                            false))
+                        ])
                     ]);
     }
 
