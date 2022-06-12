@@ -39,8 +39,8 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     // ログイン認証関連
     Auth::routes([
         'register' => true,
-        'reset'    => false,
-        'verify'   => false
+        'reset'    => true,
+        'verify'   => true
     ]);
 
     // ログイン認証後
@@ -71,8 +71,8 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     // ログイン認証関連
     Auth::routes([
         'register' => true,
-        'reset'    => false,
-        'verify'   => false
+        'reset'    => true,
+        'verify'   => true
     ]);
 
     // ログイン認証後

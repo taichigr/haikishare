@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,4 +20,14 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function showLinkRequestForm()
+    {
+        return view('shop.auth.passwords.email');
+    }
+    public function broker()
+    {
+        // 管理者ユーザ用のパスワードブローカーを指定
+        return Password::broker('shops');
+    }
 }

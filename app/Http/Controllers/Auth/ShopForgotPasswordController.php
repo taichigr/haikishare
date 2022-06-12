@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\User\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
 
-class ForgotPasswordController extends Controller
+class ShopForgotPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,14 +21,27 @@ class ForgotPasswordController extends Controller
 
     use SendsPasswordResetEmails;
 
+    use SendsPasswordResetEmails;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest:shop');
+    }
+
     public function showLinkRequestForm()
     {
-        return view('user.auth.passwords.email');
+        return view('auth.passwords.email')->with(
+            ['authgroup' => 'shop']
+        );
     }
-    
-    public function broker()
+
+    protected function broker()
     {
-        // 一般ユーザ用のパスワードブローカーを指定
-        return Password::broker('users');
+        return Password::broker('shops');
     }
 }

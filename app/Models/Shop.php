@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\ShopPasswordResetNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -59,5 +60,10 @@ class Shop extends Authenticatable
     public function products(): HasMany
     {
         return $this->hasMany("App\Models\Product");
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ShopPasswordResetNotification($token));
     }
 }

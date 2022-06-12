@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Shop\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 
-class ResetPasswordController extends Controller
+class ShopResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,17 +29,32 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::SHOP_HOME;
+    protected $redirectTo = '/shop/login';
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest:shop');
+    }
+
     public function showResetForm(Request $request, $token = null)
     {
-        // 管理者ユーザ用のviewを指定
-        return view('shop.auth.passwords.reset')->with(
-            ['token' => $token, 'email' => $request->email]
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email, 'authgroup' => 'shop']
         );
     }
-    public function broker()
+
+    protected function guard()
     {
-        // 管理者ユーザ用のパスワードブローカーを指定
+        return Auth::guard('shop');
+    }
+
+    protected function broker()
+    {
         return Password::broker('shops');
     }
 }

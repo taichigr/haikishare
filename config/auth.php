@@ -107,7 +107,7 @@ return [
 
         'shops' => [
             'provider' => 'shops',
-            'table' => 'password_resets',
+            'table' => 'shop_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ]
