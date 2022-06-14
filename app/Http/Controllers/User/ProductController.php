@@ -77,6 +77,7 @@ class ProductController extends Controller
         // ユーザーマイページからキャンセル->ユーザーマイページへ
     }
 
+    // 商品購入処理（メールをユーザーとコンビニに送信）
     public function purchase(Request $request)
     {
         if(!Auth::check()) {
