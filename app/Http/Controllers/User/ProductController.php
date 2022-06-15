@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\NotifyPurchaseShop;
+use App\Mail\NotifyPurchaseUser;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -83,11 +86,20 @@ class ProductController extends Controller
         if(!Auth::check()) {
             return redirect()->route('user.login');
         }
+        // Mail::to(Auth::user()->email)->send(new NotifyPurchaseUser());
+        $purchaser = Auth::user();
+
         $query = Product::query();
         $query->where('receive_flg', 0);
         $product = $query->where('id', $request->product_id)->first();
-        $product->user_id = Auth::id();
+        $product->user_id = $purchaser->id;
         $product->save();
+
+        Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseUser($product));
+        Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseShop($product, $purchaser));
+
+        dd('dau');
+
         // return redirect()->route('product.index');
         return back();
     }
