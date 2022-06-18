@@ -10,7 +10,7 @@
         <img
             v-else
             class="c-content__image"
-            :src="'/uploads/products/' + 'noimage.jpeg'"
+            :src="'/storage/uploads/products/' + 'noimage.jpeg'"
             alt="noimage"
         >
     </div>

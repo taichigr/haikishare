@@ -10,7 +10,7 @@
         <img
             v-else
             class="c-content__image"
-            :src="'/uploads/products/' + 'noimage.jpeg'"
+            :src="'/storage/uploads/products/' + 'noimage.jpeg'"
             alt="noimage"
         >
     </div>
@@ -31,6 +31,7 @@
                 編集
             </a>
             <button
+                style="padding: 0 4px;font-size: 12px;"
                 :form="receiveFormId"
                 type="submit"
                 :href="endpointReceive"

@@ -6,8 +6,13 @@
 
 require('./bootstrap');
 require('./script');
+import VueSocialSharing from 'vue-social-sharing';
+
 
 window.Vue = require('vue');
+
+Vue.use(VueSocialSharing);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,6 +29,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('preview-image', require('./components/PreviewImage.vue').default);
 Vue.component('shop-card', require('./components/ShopCard.vue').default);
 Vue.component('user-card', require('./components/UserCard.vue').default);
+Vue.component('share-button', require('./components/ShareButton.vue').default);
+
 
 
 

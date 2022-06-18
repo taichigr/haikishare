@@ -1,40 +1,54 @@
-.c-button__default {
-    padding: $space_m $space_xxl;
-    background-color: $main-color;
-    color: $font-color-white;
-    border-radius: $space_m;
-    cursor: pointer;
-    &:hover {
-        opacity: 0.8;
-    }
-    &--alert {
-    background-color: $main-color-reverse;
-    padding: $space_m $space_3l;
-    color: $font-color-white;
-    border-radius: $space_m;
-    &:hover {
-        opacity: 0.8;
-        }
-    }
-    &--cancel {
-        background-color: $main-color-reverse;
-        font-size: $font-size_s;
-        padding: $space_m $space_m;
+.c-button {
+    &__default {
+        padding: $space_m $space_xxl;
+        background-color: $main-color;
         color: $font-color-white;
         border-radius: $space_m;
-        line-height: 2;
         cursor: pointer;
         &:hover {
             opacity: 0.8;
-            }
-    }
-    &--gray {
-        background-color: $gray;
-        padding: $space_m $space_xxl;
+        }
+        &--alert {
+        background-color: $main-color-reverse;
+        padding: $space_m $space_3l;
         color: $font-color-white;
         border-radius: $space_m;
+        &:hover {
+            opacity: 0.8;
+            }
+        }
+        &--cancel {
+            background-color: $main-color-reverse;
+            font-size: $font-size_s;
+            padding: $space_m $space_m;
+            color: $font-color-white;
+            border-radius: $space_m;
+            line-height: 2;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+                }
+        }
+        &--gray {
+            background-color: $gray;
+            padding: $space_m $space_xxl;
+            color: $font-color-white;
+            border-radius: $space_m;
+        }
+    }
+    &__share {
+        margin-top: $space_m;
+        padding: $space_s $space_m;
+        border-radius: $space_m;
+        cursor: pointer;
+        border: 1px solid;
+        transition: all .5s;
+        &:hover {
+            transition: all .5s;
+        }
     }
 }
+
 // .c-button__default--alert {
 //     background-color: $main-color-reverse;
 // }

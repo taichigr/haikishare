@@ -27,21 +27,16 @@
         @endif
         @else
         <li class="p-toggleMenu__item">
-            <a id="" class="" href="#" role="button">
-                {{ Auth::user()->name }} <span class=""></span>
-            </a>
-            <div class="">
-                <a class="" href="{{ route('shop.logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                    ログアウト
-                </a>
-                <form id="logout-form" action="{{ route('shop.logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
+            <a class="" href="{{ route('shop.mypage.index') }}">マイページ</a>
         </li>
         <li class="p-toggleMenu__item">
-            <a class="" href="{{ route('shop.mypage.index') }}">マイページ</a>
+            <a class="" href="{{ route('shop.logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                ログアウト
+            </a>
+            <form id="logout-form" action="{{ route('shop.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </li>
         @endunless
     </ul>

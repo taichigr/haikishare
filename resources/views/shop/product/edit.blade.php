@@ -76,7 +76,7 @@
                     @enderror
                     <preview-image 
                         @if($product->image)
-                        :image-path='@json(asset('uploads/products/'.$product->image))'
+                        :image-path='@json(asset('storage/uploads/products/'.$product->image))'
                         @endif
                         @error('image')
                         :invalid='@json('is-invalid')'

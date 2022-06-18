@@ -17,7 +17,7 @@
     <ul class="p-toggleMenu js-toggle-menu">
         <!-- Authentication Links -->
         @unless (Auth::guard('user')->check())
-            <li class="p-toggleMenu--item">
+            <li class="p-toggleMenu__item">
                 <a class="" href="{{ route('user.login') }}">ログイン</a>
             </li>
             @if (Route::has('user.register'))
@@ -26,24 +26,26 @@
                 </li>
             @endif
         @else
-            <li class="p-toggleMenu__item">
-                <div class="">
-                    <a class="" href="{{ route('user.logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                        ログアウト
-                    </a>
-                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            <li class="p-toggleMenu__item">
-                <a class="" href="{{ route('user.mypage.index') }}">マイページ</a>
-            </li>
+        <li class="p-toggleMenu__item">
+            <a class="" href="{{ route('user.mypage.index') }}">マイページ</a>
+        </li>
         @endunless
         <li class="p-toggleMenu__item">
             <a class="" href="{{ route('product.index') }}">商品一覧</a>
         </li>
+        @unless (!Auth::guard('user')->check())
+        <li class="p-toggleMenu__item">
+            <div class="">
+                <a class="" href="{{ route('user.logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    ログアウト
+                </a>
+                <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @endunless
     </ul>
 </header>

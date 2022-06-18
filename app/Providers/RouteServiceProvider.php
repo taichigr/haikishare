@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/product';
-    public const SHOP_HOME = '/shop/home';
+    public const SHOP_HOME = '/shop/mypage';
 
 
     /**

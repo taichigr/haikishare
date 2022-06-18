@@ -578,6 +578,19 @@ img {
   border-radius: 8px;
 }
 
+.c-button__share {
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.5s;
+}
+
+.c-button__share:hover {
+  transition: all 0.5s;
+}
+
 .c-container {
   width: 100%;
   padding-right: 16px;
@@ -1019,5 +1032,14 @@ img {
   background-color: #eeeeee;
   border: none;
   border-radius: 8px;
+}
+
+.u-color__twitter {
+  color: #1da1f2;
+}
+
+.u-color__twitter:hover {
+  background-color: #1da1f2;
+  color: #fff;
 }
 

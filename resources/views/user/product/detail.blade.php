@@ -5,6 +5,19 @@
     <div class="c-container p-auth__container">
         <div class="c-pageTitle__container">
             <h2 class="c-pageTitle__text">商品詳細</h2>
+            <share-network
+                network="twitter"
+                url="{{ route('product.detail', ['product' => $product->id]) }}"
+                title="haiki shareでフードロスを減らそう！
+商品名：{{ $product->name }}
+価格：{{ $product->price }}"
+                hashtags="haikishare,コンビニ"
+            >
+                <button class="c-button__share u-color__twitter">
+                    <i class="fa fa-twitter"></i> Twitterで商品をシェアする
+                </button>
+            </share-network>
+
             @if(!$product->user_id)
             <form method="post" action="{{ route('user.product.purchase') }}">
                 @csrf
@@ -66,7 +79,7 @@
                 {{-- TODO 編集.ファイルをアップロード　アップロード時、バリデーション、アップロードの際にストレージに保存。axios --}}
                 <div class="c-form__inputContainer">
                     @if($product->image)
-                    <img src="{{ asset('uploads/products/'.$product->image) }}" alt="{{$product->name}}">
+                    <img src="{{ asset('storage/uploads/products/'.$product->image) }}" alt="{{$product->name}}">
                     @else
                     画像は登録されていません
                     @endif

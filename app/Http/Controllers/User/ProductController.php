@@ -97,9 +97,6 @@ class ProductController extends Controller
 
         Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseUser($product));
         Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseShop($product, $purchaser));
-
-        dd('dau');
-
         // return redirect()->route('product.index');
         return back();
     }

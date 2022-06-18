@@ -8,6 +8,19 @@
 
     <div class="c-form__container">
         *商品詳細画面から編集はできません。
+        <share-network
+            network="twitter"
+            url="{{ route('product.detail', ['product' => $product->id]) }}"
+            title="haiki shareでフードロスを減らそう！
+商品名：{{ $product->name }}
+価格：{{ $product->price }}"
+            hashtags="haikishare,コンビニ"
+        >
+            <button class="c-button__share u-color__twitter">
+                <i class="fa fa-twitter"></i> Twitterで商品をシェアする
+            </button>
+        </share-network>
+
         <div class="c-form__control">
             <label for="name" class="c-form__label">商品名</label>
 
@@ -55,7 +68,7 @@
             {{-- TODO 編集.ファイルをアップロード　アップロード時、バリデーション、アップロードの際にストレージに保存。axios --}}
             <div class="c-form__inputContainer">
                 @if($product->image)
-                <img src="{{ asset('uploads/products/'.$product->image) }}" alt="{{$product->name}}">
+                <img src="{{ asset('storage/uploads/products/'.$product->image) }}" alt="{{$product->name}}">
                 @else
                 画像は登録されていません
                 @endif

@@ -1,0 +1,9 @@
+.u-color {
+    &__twitter {
+        color: #1da1f2;
+        &:hover {
+            background-color: #1da1f2;
+            color: $font-color-white;
+        }
+    }
+}
