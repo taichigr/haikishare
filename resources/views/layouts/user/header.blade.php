@@ -1,7 +1,7 @@
 <header class="l-header">
     <nav class="p-menu">
         <div class="p-menu__logoContainer">
-            <a class="" href="{{ route('product.index') }}">
+            <a class="" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         </div>
