@@ -39,6 +39,7 @@
                 :href="endpointParchase"
                 class="c-button__default"
                 v-if="product.user_id == null"
+                onclick="return confirm('購入しますか？')"
             >
                 商品購入
             </button>

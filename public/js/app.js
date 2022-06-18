@@ -2207,6 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: {
@@ -38162,6 +38163,7 @@ var render = function () {
                   form: _vm.purchaseFormId,
                   type: "submit",
                   href: _vm.endpointParchase,
+                  onclick: "return confirm('購入しますか？')",
                 },
               },
               [_vm._v("\n                商品購入\n            ")]

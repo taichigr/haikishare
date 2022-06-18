@@ -19,17 +19,21 @@
             </share-network>
 
             @if(!$product->user_id)
-            <form method="post" action="{{ route('user.product.purchase') }}">
-                @csrf
-                <input name="product_id" type="hidden" value="{{$product->id}}">
-                <div class="c-form__buttonArea">
-                    <button type="submit" class="c-button__default" onclick="return confirm('購入しますか？')">
-                        商品購入
-                    </button>
-                </div>
-            </form>
+                @if(Auth::user('user'))
+                    <form method="post" action="{{ route('user.product.purchase') }}">
+                        @csrf
+                        <input name="product_id" type="hidden" value="{{$product->id}}">
+                        <div class="c-form__buttonArea">
+                            <button type="submit" class="c-button__default" onclick="return confirm('購入しますか？')">
+                                商品購入
+                            </button>
+                        </div>
+                    </form>
+                @else
+                <p>購入にはログインが必要です</p>
+                @endif
             @endif
-            @if($product->user_id == Auth::id())
+            @if(Auth::user() && $product->user_id == Auth::user()->id)
             <form method="post" action="{{ route('user.product.cancel') }}">
                 @csrf
                 <input name="product_id" type="hidden" value="{{$product->id}}">
