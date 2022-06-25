@@ -14,7 +14,7 @@ class FrontController extends Controller
     public function index()
     {
         //
-        dd('共通ランディングページ');
+        return view('front.index');
     }
 
     /**

@@ -1,0 +1,32 @@
+.c-article {
+    &__container {
+        @media screen and (min-width:768px){
+            width: 35%;
+            position:relative;
+            margin-right: $space_m;
+            margin-left: $space_m;
+        }
+    }
+    &__textContainer {
+        margin-top: $space_30;
+        @media screen and (min-width:768px){
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+        }
+    }
+    &__title {
+        text-align: center;
+        font-size: $font-size-xxl;
+    }
+    &__text {
+        margin-top: $space_m;
+        font-size: $font-size_m;
+        padding: $space_m;
+        @media screen and (min-width:768px){
+            padding: $space_xxl;
+        }
+    }
+}

@@ -73,4 +73,31 @@
         display: flex;
         justify-content: space-around;
     }
+    &__1column {
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid $font-color_default;
+        padding: $space_30;
+        border-radius: $space_3l;
+        margin-top: $space_30;
+        @media screen and (min-width:768px){
+            width: 70%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: $space_40;
+        }
+    }
+    &__linkList {
+        box-sizing: border-box;
+        width: 100%;
+        padding: $space_30;
+        border-radius: $space_3l;
+        margin-top: $space_30;
+        @media screen and (min-width:768px){
+            width: 70%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: $space_40;
+        }
+    }
 }

@@ -4,6 +4,12 @@
     padding-left: $space_xl;
     margin-right: auto;
     margin-left: auto;
+        &__2column {
+            @media screen and (min-width:768px){
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
 .c-footerContainer {
     width: 100%;

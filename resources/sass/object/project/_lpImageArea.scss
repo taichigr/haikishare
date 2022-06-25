@@ -1,0 +1,21 @@
+.p-lpImageArea {
+    &__container {
+        width: 100%;
+        position: relative;
+        // @media screen and (min-width:1000px){
+        //     width: 40%;
+        // }
+    }
+    &__textContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    &__text {
+        font-size: $font-size_lptext;
+    }
+}
