@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
+// コンビニ側店舗情報関連処理
 class MypageController extends Controller
 {
     /**
@@ -21,63 +22,27 @@ class MypageController extends Controller
     public function index()
     {
         //
-        // dd('ss');
-        // $sellProducts
         $query = Product::query();
         $query->where('receive_flg', 0);
         $sellProducts = $query->where('shop_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->get();
-        // $soldProducts
         $query = Product::query();
         $query->where('shop_id', Auth::id())
             ->whereNotNull('user_id')
             ->take(5)
             ->orderBy('updated_at', 'desc');
         $soldProducts = $query->get();
-        // dd($soldProducts);
         return view('shop.mypage.index', [
             'sellProducts' => $sellProducts,
             'soldProducts' => $soldProducts,
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側マイページ編集画面表示
     public function edit($id)
     {
         //
@@ -95,6 +60,7 @@ class MypageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側マイページ情報更新処理
     public function update(Request $request, $id)
     {
         //

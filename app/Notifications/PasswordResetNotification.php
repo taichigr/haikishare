@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Auth\Notifications\ResetPassword;
 
-
+// ユーザー側パスワードリセット
 class PasswordResetNotification extends ResetPassword
 {
     use Queueable;

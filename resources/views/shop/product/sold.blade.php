@@ -5,15 +5,6 @@
         <h2 class="c-pageTitle__text">マイページ商品一覧（購入された商品） --コンビニ--</h2>
     </div>
 
-    {{-- <div class="c-list__wraper p-mypage__listWraper">
-        <ul class="c-list__group">
-            <li class="c-list__item"><a class="arrow"
-                    href="{{ route('shop.mypage.edit',['mypage' => Auth::id()]) }}">ユーザ情報の編集</a></li>
-            <li class="c-list__item"><a class="arrow" href="{{ route('shop.product.create') }}">商品出品</a></li>
-        </ul>
-    </div> --}}
-    {{-- {{ dd($products) }} --}}
-
     <div class="p-mypage__showSellProduct">
         <h3 class="c-content__title">購入された商品</h3>
         <div class="c-content__area">

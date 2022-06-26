@@ -46,7 +46,6 @@
 
 <div class="c-form__control">
     <label for="image" class="c-form__label">画像</label>
-    {{-- TODO 編集.ファイルをアップロード　アップロード時、バリデーション、アップロードの際にストレージに保存。axios --}}
     <div class="c-form__inputContainer">
         <input id="image" type="file" class="c-form__input  @error('image') is-invalid @enderror" name="image"
             value="{{ old('image') }}" autocomplete="image">

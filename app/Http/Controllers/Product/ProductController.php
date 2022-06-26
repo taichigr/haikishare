@@ -8,6 +8,7 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+// 商品関連処理 商品一覧と詳細
 class ProductController extends Controller
 {
     /**
@@ -15,6 +16,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // 商品一覧ページ表示
     public function index(Request $request)
     {
         //
@@ -86,9 +88,7 @@ class ProductController extends Controller
         if(empty($limit)) {
             $limit = '';
         }
-        // dd($query->toSql());
         $products = $query->select('products.*')->paginate(9);
-        // dd($products);
         $categories = Category::all();
         return view('product.index', [
             'products' => $products,
@@ -99,40 +99,7 @@ class ProductController extends Controller
         ]);
     }
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show($id)
-    // {
-    //     //
-    //     dd('product.show');
-
-    // }
-
+    // 商品詳細表示
     public function detail($id)
     {
         $query = Product::query();
@@ -144,12 +111,4 @@ class ProductController extends Controller
             'categories' => $categories
         ]);
     }
-
-    // public function purchase(Request $request)
-    // {
-    //     $product = Product::where('id', $request->product_id)->first();
-    //     $product->user_id = Auth::id();
-    //     $product->save();
-    //     return redirect()->route('product.index');
-    // }
 }

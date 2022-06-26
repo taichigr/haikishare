@@ -10,7 +10,7 @@
         <img
             v-else
             class="c-content__image"
-            :src="'/storage/uploads/products/' + 'noimage.jpeg'"
+            :src='noImagePath'
             alt="noimage"
         >
     </div>
@@ -90,6 +90,7 @@ export default {
             endpointReceive: this.endpointReceive,
             receiveFormId: 'receive' + this.product.id,
             imagePath: this.imageSrc + '/' + this.product.image,
+            noImagePath: this.imageSrc + '/image/noimage.jpeg',
         }
     },
     methods: {

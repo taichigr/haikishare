@@ -11,23 +11,15 @@ use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+// コンビニ側の商品関連処理
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側商品登録画面表示
     public function create()
     {
         //
@@ -41,6 +33,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側商品登録処理
     public function store(ProductRequest $request)
     {
         //
@@ -66,22 +59,12 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側商品編集画面表示
     public function edit($id)
     {
         //
@@ -93,6 +76,7 @@ class ProductController extends Controller
         return view('shop.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
+    // コンビニ側商品詳細表示
     public function detail($id)
     {
         //
@@ -108,6 +92,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // コンビニ側商品情報更新処理
     public function update(Request $request, Product $product)
     {
         //
@@ -136,6 +121,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // 商品削除処理
     public function destroy(Product $product)
     {
         //
@@ -143,6 +129,7 @@ class ProductController extends Controller
         return redirect()->route('shop.mypage.index');
     }
 
+    // 出品した商品表示
     public function sellIndex(Shop $shop)
     {
         $products = $shop->products()->orderBy('updated_at', 'desc')->paginate(5);
@@ -150,7 +137,8 @@ class ProductController extends Controller
         return view('shop.product.sell', ['products' => $products]);
     }
 
-    public function soldIndex(Shop $shop)
+    // 購入された商品表示
+    public function soldIndex()
     {
         $query = Product::query();
         $query->where('receive_flg', 0);
@@ -162,6 +150,8 @@ class ProductController extends Controller
         return view('shop.product.sold', ['products' => $products]);
     }
 
+
+    // 購入者が商品を受け取ったボタンの処理
     public function receive(Request $request)
     {
         if(!Auth::check()) {
@@ -172,7 +162,6 @@ class ProductController extends Controller
                         ->first();
         $product->receive_flg = 1;
         $product->save();
-        // return redirect()->route('product.index');
         return back();
     }
 }

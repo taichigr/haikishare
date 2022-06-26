@@ -43,6 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // ユーザー側パスワードリセット通知
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PasswordResetNotification($token));

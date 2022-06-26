@@ -10,7 +10,7 @@
         <img
             v-else
             class="c-content__image"
-            :src="'/storage/uploads/products/' + 'noimage.jpeg'"
+            :src='noImagePath'
             alt="noimage"
         >
     </div>
@@ -97,6 +97,7 @@ export default {
             cancelFormId: 'cancel' + this.product.id,
             purchaseFormId: 'purchase' + this.product.id,
             imagePath: this.imageSrc + '/' + this.product.image,
+            noImagePath: this.imageSrc + '/image/noimage.jpeg',
         }
     },
     methods: {

@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 
 use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
-
+// コンビニ側パスワードリセット
 class ShopPasswordResetNotification extends ResetPasswordNotification
 {
     use Queueable;

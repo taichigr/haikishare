@@ -53,15 +53,19 @@ class Shop extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // リレーション 都道府県
     public function prefecture(): BelongsTo
     {
         return $this->belongsTo('App\Models\Prefecture');
     }
+
+    // リレーション 商品
     public function products(): HasMany
     {
         return $this->hasMany("App\Models\Product");
     }
 
+    // コンビニ側のパスワードリセット通知
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ShopPasswordResetNotification($token));

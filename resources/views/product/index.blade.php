@@ -72,7 +72,6 @@
                             :auth-user-id='@json(Auth::id())'
                             endpoint-detail='{{ route('product.detail', ['product'=> $product->id]) }}'
                             endpoint-purchase='{{ route('user.product.purchase', ['product'=> $product->id]) }}'
-                            {{-- endpoint-edit='{{ route('user.product.edit', ['product' => $product->id]) }}' --}}
                         ></user-card>
                         <form
                             id="cancel{{$product->id}}"

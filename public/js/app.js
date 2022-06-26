@@ -2134,7 +2134,8 @@ __webpack_require__.r(__webpack_exports__);
       endpointEdit: this.endpointEdit,
       endpointReceive: this.endpointReceive,
       receiveFormId: 'receive' + this.product.id,
-      imagePath: this.imageSrc + '/' + this.product.image
+      imagePath: this.imageSrc + '/' + this.product.image,
+      noImagePath: this.imageSrc + '/image/noimage.jpeg'
     };
   },
   methods: {},
@@ -2249,7 +2250,8 @@ __webpack_require__.r(__webpack_exports__);
       endpointPurchase: this.endpointPurchase,
       cancelFormId: 'cancel' + this.product.id,
       purchaseFormId: 'purchase' + this.product.id,
-      imagePath: this.imageSrc + '/' + this.product.image
+      imagePath: this.imageSrc + '/' + this.product.image,
+      noImagePath: this.imageSrc + '/image/noimage.jpeg'
     };
   },
   methods: {},
@@ -37987,10 +37989,7 @@ var render = function () {
           })
         : _c("img", {
             staticClass: "c-content__image",
-            attrs: {
-              src: "/storage/uploads/products/" + "noimage.jpeg",
-              alt: "noimage",
-            },
+            attrs: { src: _vm.noImagePath, alt: "noimage" },
           }),
     ]),
     _vm._v(" "),
@@ -38101,10 +38100,7 @@ var render = function () {
           })
         : _c("img", {
             staticClass: "c-content__image",
-            attrs: {
-              src: "/storage/uploads/products/" + "noimage.jpeg",
-              alt: "noimage",
-            },
+            attrs: { src: _vm.noImagePath, alt: "noimage" },
           }),
     ]),
     _vm._v(" "),

@@ -10,62 +10,10 @@ use App\Mail\NotifyPurchaseShop;
 use App\Mail\NotifyPurchaseUser;
 use Illuminate\Support\Facades\Mail;
 
+// ユーザー側の商品に関わる処理
 class ProductController extends Controller
 {
-    // /**
-    //  * Display a listing of the resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function index()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Show the form for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show($id)
-    // {
-    //     //
-    //     dd('product.show');
-
-    // }
-
-    // public function detail($id)
-    // {
-    //     $product = Product::where('id', $id)->first();
-    //     $categories = Category::all();
-    //     return view('user.product.detail', [
-    //         'product' => $product,
-    //         'categories' => $categories
-    //     ]);
-    // }
-
+    // 購入キャンセル処理
     public function cancel(Request $request)
     {
         $product = Product::where('id', $request->product_id)->first();
@@ -74,10 +22,7 @@ class ProductController extends Controller
         }
         $product->user_id = null;
         $product->save();
-        // return redirect()->route('user.mypage.index');
         return back();
-        // TODO なぜか一番前の要素がなくなる現象
-        // ユーザーマイページからキャンセル->ユーザーマイページへ
     }
 
     // 商品購入処理（メールをユーザーとコンビニに送信）
@@ -100,6 +45,8 @@ class ProductController extends Controller
         // return redirect()->route('product.index');
         return back();
     }
+
+    // ユーザーが購入済みの商品一覧
     public function purchaseIndex()
     {
         //

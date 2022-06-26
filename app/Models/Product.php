@@ -10,29 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     //
+    // リレーション コンビニ店舗
     public function shop(): BelongsTo
     {
         return $this->belongsTo('App\Models\Shop');
     }
-    // カテゴリーのリレーション作成
+    // リレーション カレゴリー
     public function category(): BelongsTo
     {
         return $this->belongsTo('App\Models\Category');
-    }
-
-    // public function stocks(): HasMany
-    // {
-    //     return $this->hasMany('App\Models\Stock');
-    // }
-
-    // public function product_user(): BelongsToMany
-    // {
-    //     return $this->belongsToMany('App\Models\User')->withTimestamps();
-    // }
-
-    public function stockQuantity()
-    {
-        $total = $this->stocks->sum('quantity');
-        return $total;
     }
 }

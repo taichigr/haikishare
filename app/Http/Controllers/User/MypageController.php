@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-
+// ユーザー情報に関わる処理
 class MypageController extends Controller
 {
     /**
@@ -18,6 +18,7 @@ class MypageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // ユーザーマイページ表示
     public function index()
     {
         //
@@ -26,43 +27,12 @@ class MypageController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // ユーザー情報編集画面表示
     public function edit($id)
     {
         //
@@ -80,6 +50,7 @@ class MypageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // ユーザー情報更新処理
     public function update(Request $request, $id)
     {
         //
