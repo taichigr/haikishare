@@ -23,7 +23,7 @@ class ShopPasswordResetNotification extends ResetPasswordNotification
         }
 
         return (new MailMessage)
-                    ->subject('パスワードリセット通知 shop')
+                    ->subject('パスワードリセットのお知らせ')
                     ->view('emails.shop.password_reset', [
                         'reset_url' => route('shop.password.reset',
                         [

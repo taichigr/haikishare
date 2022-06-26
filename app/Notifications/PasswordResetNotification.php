@@ -26,7 +26,7 @@ class PasswordResetNotification extends ResetPassword
         }
 
         return (new MailMessage)
-                    ->subject('パスワードリセット通知')
+                    ->subject('パスワードリセットのお知らせ')
                     ->view('emails.user.password_reset', [
                         'reset_url' => route('user.password.reset',
                         [
