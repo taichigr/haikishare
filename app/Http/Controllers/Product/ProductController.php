@@ -87,7 +87,8 @@ class ProductController extends Controller
             $limit = '';
         }
         // dd($query->toSql());
-        $products = $query->paginate(9);
+        $products = $query->select('products.*')->paginate(9);
+        // dd($products);
         $categories = Category::all();
         return view('product.index', [
             'products' => $products,
