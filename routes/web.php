@@ -44,25 +44,13 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     ]);
 
     // ログイン認証後
-    // TOPページ
-    Route::resource('home', 'HomeController', ['only' => 'index'])->middleware('auth:user');
     // ユーザー側で必要なページ（user/xxxxxx/のページ）。マイページ、プロフィール編集画面
     Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:user');
-
     Route::get('/purchased', 'ProductController@purchaseIndex')->name('purchased.index')->middleware('auth:user');
-
     // 購入
     Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase')->middleware('auth:user');
     // キャンセル
     Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel')->middleware('auth:user');
-
-
-    // 商品一覧画面
-
-
-
-
-
 });
 
 // 管理者
@@ -75,8 +63,6 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
         'verify'   => true
     ]);
 
-    // ログイン認証後
-    Route::resource('/home', 'HomeController', ['only' => 'index'])->middleware('auth:shop');
     // shopマイページ index, edit, update
     Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:shop');
     // shopが出品する商品 create, store, edit, update, destory
@@ -93,11 +79,4 @@ Route::namespace('Shop')->prefix('shop')->name('shop.')->group(function () {
     // 受け取り
     Route::post('/product/receive', 'ProductController@receive')->name('product.receive')->middleware('auth:shop');
 
-    // Route::middleware('auth:shop')->group(function () {
-
-    //     // TOPページ
-    //     Route::resource('home', 'HomeController', ['only' => 'index']);
-
-    //     Route::resource('/mypage', 'MypageController')->name('mypage');
-    // });
 });

@@ -10,8 +10,6 @@
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
-        {{-- <div class="" id=""> --}}
-        {{-- </div> --}}
     </nav>
     <!-- Right Side Of Navbar -->
     <ul class="p-toggleMenu js-toggle-menu">

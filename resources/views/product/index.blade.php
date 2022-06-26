@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.app')
 @section('content')
 <div class="c-container p-show__container">
     <div class="c-pageTitle__container">
@@ -56,9 +56,6 @@
 
     <div class="p-show__showSellProduct">
         <div class="c-content__header">
-            {{-- @if(!$products)
-            <h3 class="c-content__title">商品一覧</h3>
-            @endif --}}
         </div>
         <div class="c-content__area">
             <div class="p-show__gridWrapper">
@@ -72,6 +69,7 @@
                             :auth-user-id='@json(Auth::id())'
                             endpoint-detail='{{ route('product.detail', ['product'=> $product->id]) }}'
                             endpoint-purchase='{{ route('user.product.purchase', ['product'=> $product->id]) }}'
+                            :shop-login-flg='@json(Auth::guard('shop')->check())'
                         ></user-card>
                         <form
                             id="cancel{{$product->id}}"

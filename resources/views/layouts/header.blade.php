@@ -10,20 +10,33 @@
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
-        {{-- <div class="" id=""> --}}
-        {{-- </div> --}}
     </nav>
     <!-- Right Side Of Navbar -->
     <ul class="p-toggleMenu js-toggle-menu">
         <!-- Authentication Links -->
         @unless (Auth::guard('user')->check())
-            <li class="p-toggleMenu__item">
-                <a class="" href="{{ route('user.login') }}">ログイン</a>
-            </li>
-            @if (Route::has('user.register'))
+            @if(!Auth::guard('shop')->check())
                 <li class="p-toggleMenu__item">
-                    <a class="" href="{{ route('user.register') }}">新規登録</a>
+                    <a class="" href="{{ route('user.login') }}">ログイン</a>
                 </li>
+                @if (Route::has('user.register'))
+                    <li class="p-toggleMenu__item">
+                        <a class="" href="{{ route('user.register') }}">新規登録</a>
+                    </li>
+                @endif
+            @else
+            <li class="p-toggleMenu__item">
+                <a class="" href="{{ route('shop.mypage.index') }}">マイページ</a>
+            </li>
+            <li class="p-toggleMenu__item">
+                <a class="" href="{{ route('shop.logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                    ログアウト
+                </a>
+                <form id="logout-form" action="{{ route('shop.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
             @endif
         @else
         <li class="p-toggleMenu__item">

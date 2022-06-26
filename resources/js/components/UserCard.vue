@@ -38,7 +38,7 @@
                 type="submit"
                 :href="endpointParchase"
                 class="c-button__default"
-                v-if="product.user_id == null"
+                v-if="product.user_id == null && shopLoginFlg == false"
                 onclick="return confirm('購入しますか？')"
             >
                 商品購入
@@ -84,6 +84,10 @@ export default {
         imageSrc: {
             type: String,
             default: '',
+        },
+        shopLoginFlg: {
+            type: Boolean,
+            default: false,
         }
     },
     data() {
@@ -98,6 +102,7 @@ export default {
             purchaseFormId: 'purchase' + this.product.id,
             imagePath: this.imageSrc + '/' + this.product.image,
             noImagePath: this.imageSrc + '/image/noimage.jpeg',
+            shopLoginFlg: this.shopLoginFlg,
         }
     },
     methods: {
