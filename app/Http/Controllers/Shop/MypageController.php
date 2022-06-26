@@ -98,14 +98,18 @@ class MypageController extends Controller
         return redirect()->route('shop.mypage.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    // ユーザー退会画面表示
+    public function withdrawShow()
     {
-        //
+        return view('shop.mypage.withdraw');
+    }
+
+    // ユーザー退会処理
+    public function withdraw()
+    {
+        $user = Auth::user();
+        $user->delete();
+        Auth::logout();
+        return redirect()->route('shop.register');
     }
 }
