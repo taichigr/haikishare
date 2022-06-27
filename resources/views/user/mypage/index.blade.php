@@ -7,8 +7,12 @@
 
     <div class="c-list__wraper p-mypage__listWraper">
         <ul class="c-list__group">
-            <li class="c-list__item"><a class="arrow"
-                    href="{{ route('user.mypage.edit',['mypage' => Auth::id()]) }}">ユーザ情報の編集</a></li>
+            <li class="c-list__item">
+                <a class="arrow" href="{{ route('user.mypage.edit',['mypage' => Auth::id()]) }}">ユーザ情報の編集</a>
+            </li>
+            <li class="c-list__item">
+                <a class="arrow" href="{{ route('user.mypage.withdraw') }}">退会</a>
+            </li>
         </ul>
     </div>
 

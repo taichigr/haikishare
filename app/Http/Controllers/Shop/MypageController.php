@@ -107,8 +107,10 @@ class MypageController extends Controller
     // ユーザー退会処理
     public function withdraw()
     {
-        $user = Auth::user();
-        $user->delete();
+        // 退会時すべての商品情報論理削除
+        $shop = Auth::user();
+        $shop->delete();
+        Product::where('shop_id', $shop->id)->delete();
         Auth::logout();
         return redirect()->route('shop.register');
     }
