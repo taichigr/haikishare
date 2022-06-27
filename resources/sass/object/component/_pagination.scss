@@ -1,6 +1,7 @@
 .c-pagination {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     max-width: 24rem;
     margin: 0 auto;
     padding: 1.5rem;

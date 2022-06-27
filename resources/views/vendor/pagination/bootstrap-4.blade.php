@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<nav>
+<nav class="c-pagination__wrap">
     <ul class="c-pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
