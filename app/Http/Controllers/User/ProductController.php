@@ -31,7 +31,6 @@ class ProductController extends Controller
         if(!Auth::check()) {
             return redirect()->route('user.login');
         }
-        // Mail::to(Auth::user()->email)->send(new NotifyPurchaseUser());
         $purchaser = Auth::user();
 
         $query = Product::query();
@@ -40,8 +39,8 @@ class ProductController extends Controller
         $product->user_id = $purchaser->id;
         $product->save();
 
-        Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseUser($product));
-        Mail::to('taichan_yade@yahoo.co.jp')->send(new NotifyPurchaseShop($product, $purchaser));
+        Mail::to($product->shop->email)->send(new NotifyPurchaseUser($product));
+        Mail::to($purchaser->email)->send(new NotifyPurchaseShop($product, $purchaser));
         // return redirect()->route('product.index');
         return back();
     }
