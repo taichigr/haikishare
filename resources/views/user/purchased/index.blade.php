@@ -21,7 +21,7 @@
                         endpoint-cancel='{{ route('user.product.cancel', ['product' => $product->id]) }}'
                     ></user-card>
                     <form
-                        id="purchase{{$product->id}}"
+                        id="cancel{{$product->id}}"
                         method="post"
                         action="{{ route('user.product.cancel') }}"
                     >
