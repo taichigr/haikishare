@@ -41,7 +41,6 @@ class ProductController extends Controller
 
         Mail::to($purchaser->email)->send(new NotifyPurchaseUser($product));
         Mail::to($product->shop->email)->send(new NotifyPurchaseShop($product, $purchaser));
-        // return redirect()->route('product.index');
         return back();
     }
 
@@ -51,7 +50,7 @@ class ProductController extends Controller
         //
         $query = Product::query();
         $query->where('receive_flg', 0);
-        $products = $query->where('user_id', Auth::id())->take(5)->orderBy('updated_at', 'desc')->paginate(5);
+        $products = $query->where('user_id', Auth::id())->take(5)->orderBy('created_at', 'desc')->paginate(5);
 
         return view('user.purchased.index', ['products' => $products]);
     }

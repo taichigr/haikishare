@@ -87,7 +87,7 @@ class ProductController extends Controller
         if(empty($limit)) {
             $limit = '';
         }
-        $products = $query->select('products.*')->paginate(9);
+        $products = $query->select('products.*')->orderBy('created_at', 'desc')->paginate(9);
         $categories = Category::all();
         return view('product.index', [
             'products' => $products,

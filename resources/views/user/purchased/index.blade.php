@@ -20,7 +20,7 @@
                         endpoint-edit='{{ route('user.product.cancel', ['product' => $product->id]) }}'
                     ></user-card>
                     <form
-                        id="cancel"
+                        id="purchase{{$product->id}}"
                         method="post"
                         action="{{ route('user.product.cancel') }}"
                     >

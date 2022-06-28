@@ -144,7 +144,7 @@ class ProductController extends Controller
         $query->where('shop_id', Auth::id())
             ->whereNotNull('user_id')
             ->take(5)
-            ->orderBy('updated_at', 'desc');
+            ->orderBy('created_at', 'desc');
         $products = $query->paginate(5);
         return view('shop.product.sold', ['products' => $products]);
     }
