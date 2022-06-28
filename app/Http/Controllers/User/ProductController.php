@@ -39,8 +39,8 @@ class ProductController extends Controller
         $product->user_id = $purchaser->id;
         $product->save();
 
-        Mail::to($product->shop->email)->send(new NotifyPurchaseUser($product));
-        Mail::to($purchaser->email)->send(new NotifyPurchaseShop($product, $purchaser));
+        Mail::to($purchaser->email)->send(new NotifyPurchaseUser($product));
+        Mail::to($product->shop->email)->send(new NotifyPurchaseShop($product, $purchaser));
         // return redirect()->route('product.index');
         return back();
     }

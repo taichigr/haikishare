@@ -23,7 +23,7 @@ class ProductController extends Controller
         $query = Product::query();
         $query->where('receive_flg', 0);
         if(!$request->has('prefecture_id') && !$request->has('price_id') && !$request->has('limit')) {
-            $products = $query->paginate(9);
+            $products = $query->orderBy('created_at', 'desc')->paginate(9);
             $categories = Category::all();
             return view('product.index', ['products' => $products, 'categories' => $categories]);
         }
