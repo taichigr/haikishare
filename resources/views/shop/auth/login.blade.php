@@ -37,11 +37,7 @@
 
             <div class="c-form__control">
                 <div class="c-form__inputContainer">
-                    <input class="c-form__checkbox" type="checkbox" name="remember" id="remember" {{ old('remember')
-                        ? 'checked' : '' }}>
-                    <label for="remember" class="c-form__checkboxLabel">
-                        ログイン状態を保存
-                    </label>
+                    <a class="c-form__forgetPassLink" href="{{ route('shop.password.request') }}">パスワードを忘れた方</a>
                 </div>
             </div>
 

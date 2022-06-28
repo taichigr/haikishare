@@ -671,6 +671,10 @@ img {
   margin-top: 12px;
 }
 
+.c-form__forgetPassLink {
+  color: #999;
+}
+
 .c-pageTitle__container {
   width: 100%;
 }
