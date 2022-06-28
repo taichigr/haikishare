@@ -28,9 +28,6 @@
     </div>
     <div class="c-container">
         <div class="c-content__header">
-            {{-- @if(!$products)
-            <h3 class="c-content__title">商品一覧</h3>
-            @endif --}}
         </div>
         <div class="c-content__area">
             <div class="c-content__1column">

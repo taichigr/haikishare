@@ -20,7 +20,6 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         //
-        // dd($request);
         $query = Product::query();
         $query->where('receive_flg', 0);
         if(!$request->has('prefecture_id') && !$request->has('price_id') && !$request->has('limit')) {

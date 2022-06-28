@@ -133,7 +133,6 @@ class ProductController extends Controller
     public function sellIndex(Shop $shop)
     {
         $products = $shop->products()->orderBy('updated_at', 'desc')->paginate(5);
-        // dd($products);
         return view('shop.product.sell', ['products' => $products]);
     }
 
