@@ -7,11 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifyPurchaseUser extends Mailable
+class NotifyCancelUser extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $product;
 
     public function __construct($product)
     {
@@ -19,11 +17,10 @@ class NotifyPurchaseUser extends Mailable
         $this->product = $product;
     }
 
-    // 購入メール（ユーザー）中身
+    // キャンセルメール（ユーザー）
     public function build()
     {
-
-        return $this->subject('購入通知')
-                    ->view('emails.user.notify_purchase', ['product' => $this->product]);
+        return $this->subject('キャンセル通知')
+                    ->view('emails.user.notify_cancel', ['product' => $this->product]);
     }
 }

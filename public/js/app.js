@@ -2251,8 +2251,6 @@ __webpack_require__.r(__webpack_exports__);
     expiredAt: function expiredAt() {
       var date = this.product.expired_at;
       date = date.slice(6);
-      date = date.slice(0, -3);
-      date = date.replace('-', '/');
       return date;
     }
   }

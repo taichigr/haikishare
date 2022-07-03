@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NotifyPurchaseShop;
 use App\Mail\NotifyPurchaseUser;
+use App\Mail\NotifyCancelShop;
+use App\Mail\NotifyCancelUser;
 use Illuminate\Support\Facades\Mail;
 
 // ユーザー側の商品に関わる処理
@@ -20,8 +22,13 @@ class ProductController extends Controller
         if($product->user_id != Auth::id()) {
             return redirect()->route('user.mypage.index');
         }
+        $purchaser = Auth::user();
         $product->user_id = null;
         $product->save();
+
+        // メール送信
+        Mail::to($purchaser->email)->send(new NotifyCancelUser($product));
+        Mail::to($product->shop->email)->send(new NotifyCancelShop($product, $purchaser));
         return back();
     }
 
