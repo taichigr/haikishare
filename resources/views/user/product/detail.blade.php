@@ -60,7 +60,14 @@
 
                 <div class="c-form__inputContainer">
                     <p>{{$product->price}}円</p>
+                </div>
+            </div>
 
+            <div class="c-form__control">
+                <label for="price" class="c-form__label">賞味期限</label>
+
+                <div class="c-form__inputContainer">
+                    <p>{{$product->expired_at}}</p>
                 </div>
             </div>
 

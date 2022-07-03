@@ -22,4 +22,10 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+    public function getExpiredAtAttribute($value)
+    {
+         $expiredDate = mb_substr($value, 0, -3);
+         $expiredDate = str_replace('-', '/', $expiredDate);
+         return $expiredDate;
+    }
 }
