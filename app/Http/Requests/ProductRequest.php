@@ -27,6 +27,7 @@ class ProductRequest extends FormRequest
             //
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
+            'category_id' => ['required', 'numeric', 'between:1,27'],
             'image' => ['image', 'mimes:jpg,jpeg,png', 'max:2048'],
             'expired_at' => ['required', 'date:Y-m-d H:i', 'after:yesterday'],
         ];
@@ -37,8 +38,10 @@ class ProductRequest extends FormRequest
         return [
             'name' => '商品名',
             'price' => '値段',
+            'category_id' => '商品カテゴリ',
             'image' => '画像',
             'expired_at' => '消費期限',
         ];
     }
+
 }

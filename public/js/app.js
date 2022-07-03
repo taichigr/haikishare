@@ -2066,6 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: {
@@ -2073,6 +2074,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": []
     },
     shop: {
+      type: Array,
+      "default": []
+    },
+    purchaser: {
       type: Array,
       "default": []
     },
@@ -2097,6 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       product: this.product,
       shop: this.shop,
+      purchaser: this.purchaser,
       endpointDetail: this.endpointDetail,
       endpointEdit: this.endpointEdit,
       endpointReceive: this.endpointReceive,
@@ -2105,8 +2111,11 @@ __webpack_require__.r(__webpack_exports__);
       noImagePath: this.imageSrc + '/image/noimage.jpeg'
     };
   },
-  methods: {},
-  computed: {}
+  methods: {
+    showReceivedMessage: function showReceivedMessage() {
+      confirm('購入済にしますか？購入者：' + this.purchaser.name);
+    }
+  }
 });
 
 /***/ }),
@@ -37939,6 +37948,12 @@ var render = function () {
           : _vm._e(),
       ]),
       _vm._v(" "),
+      _vm.purchaser.name
+        ? _c("p", { staticClass: "c-content__text" }, [
+            _vm._v("購入者:" + _vm._s(_vm.purchaser.name)),
+          ])
+        : _c("br"),
+      _vm._v(" "),
       _c("div", { staticClass: "c-content__buttonArea" }, [
         _c(
           "a",
@@ -37964,13 +37979,10 @@ var render = function () {
           ? _c(
               "button",
               {
-                staticClass: "c-button__default",
+                staticClass: "c-button__default--receive",
                 staticStyle: { padding: "0 4px", "font-size": "12px" },
-                attrs: {
-                  form: _vm.receiveFormId,
-                  type: "submit",
-                  href: _vm.endpointReceive,
-                },
+                attrs: { form: _vm.receiveFormId, type: "submit" },
+                on: { click: _vm.showReceivedMessage },
               },
               [_vm._v("\n                受け取り完了\n            ")]
             )
@@ -37981,11 +37993,7 @@ var render = function () {
               "button",
               {
                 staticClass: "c-button__default--gray",
-                attrs: {
-                  type: "submit",
-                  href: _vm.endpointReceive,
-                  disabled: "",
-                },
+                attrs: { type: "submit", disabled: "" },
               },
               [_vm._v("受取済")]
             )

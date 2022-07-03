@@ -15,6 +15,9 @@
                         image-src='{{ asset('storage/uploads/products') }}'
                         :product='@json($product)'
                         :shop='@json($product->shop)'
+                        @if(!empty($product->user_id))
+                        :purchaser='@json(\App\Models\User::find($product->user_id))'
+                        @endif
                         endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
                         endpoint-edit='{{ route('shop.product.edit', ['product' => $product->id]) }}'
                     ></shop-card>

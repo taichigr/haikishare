@@ -62,9 +62,12 @@
                         <a class="arrow" href="{{ route('product.index') }}">商品一覧へ</a>
                     </li>
                     @unless (Auth::guard('user')->check())
+                        @if(!Auth::guard('shop')->check())
+
                     <li class="c-list__item">
                         <a class="arrow" href="{{ route('user.register') }}">会員登録はこちら</a>
                     </li>
+                        @endif
                     @endunless
                 </ul>
             </div>
@@ -79,12 +82,15 @@
             <div class="c-list__wraper p-mypage__listWraper">
                 <ul class="c-list__group">
                     @if(!Auth::guard('shop')->check())
+                        @if(!Auth::guard('user')->check())
+
                         <li class="c-list__item">
                             <a class="arrow" href="{{ route('shop.register') }}">コンビニ側会員登録</a>
                         </li>
                         <li class="c-list__item">
                             <a class="arrow" href="{{ route('shop.login') }}">コンビニ側ログイン</a>
                         </li>
+                        @endif
                     @else
                         <li class="c-list__item">
                             <a class="arrow" href="{{ route('shop.mypage.index') }}">マイページ</a>

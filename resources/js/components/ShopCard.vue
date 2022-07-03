@@ -19,6 +19,8 @@
             {{shop.name}}:{{shop.branch_name}}</p>
         <p class="c-content__text">{{product.name}}</p>
         <p class="c-content__text">¥{{product.price}} <span class="tag" v-if="product.user_id != null">購入済み</span></p>
+        <p class="c-content__text" v-if="purchaser.name">購入者:{{purchaser.name}}</p>
+        <br v-else>
 
 
         <div class="c-content__buttonArea">
@@ -34,15 +36,14 @@
                 style="padding: 0 4px;font-size: 12px;"
                 :form="receiveFormId"
                 type="submit"
-                :href="endpointReceive"
                 v-if="product.user_id !== null && product.receive_flg == 0"
-                class="c-button__default"
+                class="c-button__default--receive"
+                @click="showReceivedMessage"
             >
                 受け取り完了
             </button>
             <button
                 type="submit"
-                :href="endpointReceive"
                 v-if="product.receive_flg == 1"
                 class="c-button__default--gray"
                 disabled
@@ -61,6 +62,10 @@ export default {
             default: [],
         },
         shop: {
+            type: Array,
+            default: [],
+        },
+        purchaser: {
             type: Array,
             default: [],
         },
@@ -85,6 +90,7 @@ export default {
         return {
             product: this.product,
             shop: this.shop,
+            purchaser: this.purchaser,
             endpointDetail: this.endpointDetail,
             endpointEdit: this.endpointEdit,
             endpointReceive: this.endpointReceive,
@@ -94,10 +100,9 @@ export default {
         }
     },
     methods: {
-        
-    },
-    computed: {
-        
+        showReceivedMessage() {
+            confirm('購入済にしますか？購入者：'+ this.purchaser.name);
+        }
     }
 }
 </script>

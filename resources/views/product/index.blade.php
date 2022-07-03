@@ -98,8 +98,8 @@
     @else
     {{
         $products->appends([
-            'prefecture_id' => $prefecture_id,
-            'price_id' => $price_id,
+            'prefecture_id' => $prefecture_id ?? '',
+            'price_id' => $price_id ?? '',
             'limit' => $limit,
         ])->links()
     }}

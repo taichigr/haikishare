@@ -546,6 +546,18 @@ img {
   opacity: 0.8;
 }
 
+.c-button__default--receive {
+  padding: 8px 20px;
+  background-color: #af3787;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c-button__default--receive:hover {
+  opacity: 0.8;
+}
+
 .c-button__default--alert {
   background-color: #af3787;
   padding: 8px 24px;

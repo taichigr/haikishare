@@ -34,6 +34,9 @@
                         image-src='{{ asset('storage/uploads/products') }}'
                         :product='@json($product)'
                         :shop='@json($product->shop)'
+                        @if(!empty($product->user_id))
+                        :purchaser='@json(\App\Models\User::find($product->user_id))'
+                        @endif
                         endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
                         endpoint-edit='{{ route('shop.product.edit', ['product' => $product->id]) }}'
                     ></shop-card>
@@ -66,8 +69,19 @@
                         image-src='{{ asset('storage/uploads/products') }}'
                         :product='@json($product)'
                         :shop='@json($product->shop)'
+                        @if(!empty($product->user_id))
+                        :purchaser='@json(\App\Models\User::find($product->user_id))'
+                        @endif
                         endpoint-detail='{{ route('shop.product.detail', ['product'=> $product->id]) }}'
                     ></shop-card>
+                    <form
+                        id="receive{{$product->id}}"
+                        method="post"
+                        action="{{ route('shop.product.receive') }}"
+                    >
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    </form>
                 </div>
                 @endforeach
             </div>

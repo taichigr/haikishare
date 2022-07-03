@@ -11,6 +11,7 @@
             @csrf
             <div class="c-form__control">
                 <label for="name" class="c-form__label">商品名</label>
+                <small class="c-form__notification">*必須</small>
 
                 <div class="c-form__inputContainer">
                     <input id="name" type="text" class="c-form__input  @error('name') is-invalid @enderror" name="name"
@@ -24,6 +25,7 @@
 
             <div class="c-form__control">
                 <label for="category_id" class="c-form__label">商品カテゴリー</label>
+                <small class="c-form__notification">*必須</small>
 
                 <div class="c-form__inputContainer">
                     <select name="category_id" id="category_id"
@@ -44,6 +46,7 @@
 
             <div class="c-form__control">
                 <label for="price" class="c-form__label">価格</label>
+                <small class="c-form__notification">*必須</small>
 
                 <div class="c-form__inputContainer">
                     <input id="price" type="number" class="c-form__inputNumber  @error('price') is-invalid @enderror"
@@ -71,6 +74,8 @@
 
             <div class="c-form__control">
                 <label for="expired_at" class="c-form__label">消費期限</label>
+                <small class="c-form__notification">*必須</small>
+
                 <div class="c-form__inputContainer">
                     <input id="expired_at" type="datetime-local" class="c-form__input @error('expired_at') is-invalid @enderror"
                         name="expired_at" value="{{ old('expired_at') }}" required autocomplete="expired_at">

@@ -15,10 +15,10 @@ return [
 
     'accepted'             => ':attributeを承認してください。',
     'active_url'           => ':attributeが有効なURLではありません。',
-    'after'                => ':attributeには、:dateより後の日付を指定してください。',
+    'after'                => ':attributeには、昨日より後の日付を指定してください。',
     'after_or_equal'       => ':attributeには、:date以降の日付を指定してください。',
     'alpha'                => ':attributeはアルファベットのみがご利用できます。',
-    'alpha_dash'           => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
+    'alpha_dash'           => ':attributeはアル ファベットとダッシュ(-)及び下線(_)がご利用できます。',
     'alpha_num'            => ':attributeはアルファベット数字がご利用できます。',
     'array'                => ':attributeは配列でなくてはなりません。',
     'before'               => ':attributeには、:dateより前の日付をご利用ください。',
@@ -153,7 +153,7 @@ return [
         'shop_name' => 'コンビニ名',
         'branch_name' => '支店名',
         'prefecture_id' => '都道府県',
-        'address' => '都道府県以降の住所'
+        'address' => '都道府県以降の住所',
     ],
 
 ];

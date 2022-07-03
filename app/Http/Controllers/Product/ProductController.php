@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 // 商品関連処理 商品一覧と詳細
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     // 商品一覧ページ表示
     public function index(Request $request)
     {
