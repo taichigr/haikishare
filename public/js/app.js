@@ -2185,6 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: {
@@ -2246,6 +2247,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return auth;
+    },
+    expiredAt: function expiredAt() {
+      var date = this.product.expired_at;
+      date = date.slice(6);
+      date = date.slice(0, -3);
+      date = date.replace('-', '/');
+      return date;
     }
   }
 });
@@ -38056,6 +38064,10 @@ var render = function () {
         _vm.product.user_id != null
           ? _c("span", { staticClass: "tag" }, [_vm._v("購入済み")])
           : _vm._e(),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "c-content__text" }, [
+        _vm._v("賞味期限：" + _vm._s(_vm.expiredAt)),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "c-content__buttonArea" }, [

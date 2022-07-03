@@ -19,6 +19,7 @@
             {{shop.name}}:{{shop.branch_name}}</p>
         <p class="c-content__text">{{product.name}}</p>
         <p class="c-content__text">¥{{product.price}}<span class="tag" v-if="product.user_id != null">購入済み</span></p>
+        <p class="c-content__text">賞味期限：{{expiredAt}}</p>
         <div class="c-content__buttonArea">
             <a :href="endpointDetail"
                 class="c-button__default">
@@ -116,6 +117,13 @@ export default {
                 auth = 'guest';
             }
             return auth;
+        },
+        expiredAt() {
+            let date = this.product.expired_at;
+            date = date.slice(6);
+            date = date.slice(0, -3);
+            date = date.replace('-', '/');
+            return date;
         }
     }
 }
