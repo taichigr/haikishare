@@ -10,9 +10,6 @@
         // padding-right: $space_xl;
         // padding-left: $space_xl;
     }
-    &__label {
-
-    }
     &__inputContainer {
         width: 100%;
     }
@@ -58,6 +55,9 @@
         }
     }
     &__forgetPassLink{
+        color: $gray;
+    }
+    &__notification {
         color: $gray;
     }
 }

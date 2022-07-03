@@ -12,7 +12,7 @@
 
             <div class="c-form__control">
                 <label for="name" class="c-form__label">名前</label>
-
+                <small class="c-form__notification">*必須</small>
                 <div class="c-form__inputContainer">
                     <input id="name" type="text" class="c-form__input @error('name') is-invalid @enderror" name="name"
                         value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -25,7 +25,7 @@
 
             <div class="c-form__control">
                 <label for="email" class="c-form__label">メールアドレス</label>
-
+                <small class="c-form__notification">*必須</small>
                 <div class="c-form__inputContainer">
                     <input id="email" type="email" class="c-form__input @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -38,8 +38,9 @@
 
             <div class="c-form__control">
                 <label for="password" class="c-form__label">パスワード</label>
-
+                <small class="c-form__notification">*必須</small>
                 <div class="c-form__inputContainer">
+                    <small class="c-form__notification">*半角英数字８字以上で入力してください</small>
                     <input id="password" type="password" class="c-form__input @error('password') is-invalid @enderror"
                         name="password" required autocomplete="new-password">
 
@@ -51,7 +52,7 @@
 
             <div class="c-form__control">
                 <label for="password-confirm" class="c-form__label">パスワード(確認)</label>
-
+                <small class="c-form__notification">*必須</small>
                 <div class="c-form__inputContainer">
                     <input id="password-confirm" type="password" class="c-form__input" name="password_confirmation"
                         required autocomplete="new-password">

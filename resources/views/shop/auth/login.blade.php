@@ -24,7 +24,7 @@
 
             <div class="c-form__control">
                 <label for="password" class="c-form__label">パスワード</label>
-
+                <small class="c-form__notification">*半角英数字８字以上で入力してください</small>
                 <div class="c-form__inputContainer">
                     <input id="password" type="password" class="c-form__input  @error('password') is-invalid @enderror"
                         name="password" required autocomplete="new-password">

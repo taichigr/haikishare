@@ -21,7 +21,7 @@
                     毎年522万トン、毎日10トントラック1430台分廃棄される食品*。
                     <br>
                     haiki shareは、消費者がフードロス削減に協力できる機会を提供するプラットフォームです。
-                    <br><small>*https://www.no-foodloss.caa.go.jp/whats.html</small>
+                    <br><small>*参考リンク:<a href="https://www.no-foodloss.caa.go.jp/whats.html">https://www.no-foodloss.caa.go.jp/whats.html</a></small>
                 </p>
             </div>
         </div>
@@ -61,9 +61,11 @@
                     <li class="c-list__item">
                         <a class="arrow" href="{{ route('product.index') }}">商品一覧へ</a>
                     </li>
+                    @unless (Auth::guard('user')->check())
                     <li class="c-list__item">
                         <a class="arrow" href="{{ route('user.register') }}">会員登録はこちら</a>
                     </li>
+                    @endunless
                 </ul>
             </div>
         </div>
@@ -72,16 +74,22 @@
     <div class="c-container">
         <div class="c-content__linkList">
             <h2 class="c-content__title">
-                コンビニの方はこちらから
+                コンビニの方
             </h2>
             <div class="c-list__wraper p-mypage__listWraper">
                 <ul class="c-list__group">
-                    <li class="c-list__item">
-                        <a class="arrow" href="{{ route('shop.register') }}">コンビニ側会員登録</a>
-                    </li>
-                    <li class="c-list__item">
-                        <a class="arrow" href="{{ route('shop.login') }}">コンビニ側ログイン</a>
-                    </li>
+                    @if(!Auth::guard('shop')->check())
+                        <li class="c-list__item">
+                            <a class="arrow" href="{{ route('shop.register') }}">コンビニ側会員登録</a>
+                        </li>
+                        <li class="c-list__item">
+                            <a class="arrow" href="{{ route('shop.login') }}">コンビニ側ログイン</a>
+                        </li>
+                    @else
+                        <li class="c-list__item">
+                            <a class="arrow" href="{{ route('shop.mypage.index') }}">マイページ</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

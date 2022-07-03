@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:shops'],
             'prefecture_id' => ['required', 'numeric', 'digits_between:1,2'],
             'address' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'regex:/^[a-zA-Z0-9-_]+$/', 'min:8', 'confirmed'],
         ]);
     }
 

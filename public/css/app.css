@@ -675,6 +675,10 @@ img {
   color: #999;
 }
 
+.c-form__notification {
+  color: #999;
+}
+
 .c-pageTitle__container {
   width: 100%;
 }
