@@ -21,7 +21,7 @@
 
                 <div class="c-form__inputContainer">
                     <input id="email" type="email" class="c-form__input @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email">
+                        name="email" value="" required autocomplete="email">
 
                     @error('email')
                     @include('../../components/error_message')

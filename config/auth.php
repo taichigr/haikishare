@@ -102,14 +102,12 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
-            'throttle' => 60,
         ],
 
         'shops' => [
             'provider' => 'shops',
             'table' => 'shop_password_resets',
             'expire' => 60,
-            'throttle' => 60,
         ]
     ],
 
