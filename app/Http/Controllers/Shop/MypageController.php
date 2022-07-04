@@ -101,7 +101,16 @@ class MypageController extends Controller
     // ユーザー退会画面表示
     public function withdrawShow()
     {
-        return view('shop.mypage.withdraw');
+        // 退会時すべての商品情報論理削除
+        $shop = Auth::user();
+        // 受け取り完了していない商品があった場合
+        $product = Product::where('shop_id', $shop->id)->where('receive_flg', 0)->first();
+        if(!empty($product)) {
+            $withdrawFlg = false;
+        } else {
+            $withdrawFlg = true;
+        }
+        return view('shop.mypage.withdraw', ['withdrawFlg' => $withdrawFlg]);
     }
 
     // ユーザー退会処理
@@ -109,6 +118,11 @@ class MypageController extends Controller
     {
         // 退会時すべての商品情報論理削除
         $shop = Auth::user();
+        // 受け取り完了していない商品があった場合
+        $product = Product::where('shop_id', $shop->id)->where('receive_flg', 0)->first();
+        if(!empty($product)) {
+            return back();
+        }
         $shop->delete();
         Product::where('shop_id', $shop->id)->delete();
         Auth::logout();

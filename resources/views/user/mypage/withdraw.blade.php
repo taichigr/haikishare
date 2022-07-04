@@ -14,11 +14,17 @@
                     type="submit"
                     class="c-button__default--alert"
                     onclick="return confirm('本当に退会しますか？')"
+                    @if(!$withdrawFlg)
+                    disabled
+                    @endif
                 >
                     退会する
                 </button>
             </div>
         </form>
+        <div class="c-form__control">
+            <p>*商品の受け取りが完了していない場合、退会できません。</p>
+        </div>
     </div>
 </div>
 @endsection

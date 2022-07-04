@@ -569,6 +569,14 @@ img {
   opacity: 0.8;
 }
 
+.c-button__default--alert:disabled {
+  background-color: #999;
+}
+
+.c-button__default--alert:disabled:hover {
+  opacity: 1;
+}
+
 .c-button__default--cancel {
   background-color: #af3787;
   font-size: 12px;
