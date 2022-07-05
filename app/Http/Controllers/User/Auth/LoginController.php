@@ -49,6 +49,15 @@ class LoginController extends Controller
     // ログイン画面
     public function showLoginForm()
     {
+        if (!session()->has('url.intended')) {
+            if(session()->get('product_url')) {
+                session(['url.intended' => session()->get('product_url')]);
+            } else {
+                session(['url.intended' => url()->previous()]);
+            }
+        }
+        session()->forget('product_url');
+
         return view('user.auth.login');
     }
 
@@ -64,5 +73,15 @@ class LoginController extends Controller
     public function loggedOut(Request $request)
     {
         return redirect(route('user.login'));
+    }
+
+    // ログイン時リダイレクト
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 }

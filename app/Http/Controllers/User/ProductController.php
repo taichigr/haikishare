@@ -36,6 +36,9 @@ class ProductController extends Controller
     public function purchase(Request $request)
     {
         if(!Auth::check()) {
+            if(!preg_match('/detail/', url()->previous())) {
+                session()->put('product_url', route('product.detail', ['product' => $request->product_id]));
+            }
             return redirect()->route('user.login');
         }
         $purchaser = Auth::user();

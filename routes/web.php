@@ -53,7 +53,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::resource('/mypage', 'MypageController', ['only' => ['index', 'edit', 'update']])->middleware('auth:user');
     Route::get('/purchased', 'ProductController@purchaseIndex')->name('purchased.index')->middleware('auth:user');
     // 購入
-    Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase')->middleware('auth:user');
+    Route::post('/product/purchase', 'ProductController@purchase')->name('product.purchase');
     // キャンセル
     Route::post('/product/cancel', 'ProductController@cancel')->name('product.cancel')->middleware('auth:user');
 });
