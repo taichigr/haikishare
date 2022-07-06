@@ -7,8 +7,6 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-// @import '~bootstrap/scss/bootstrap';
 
 /* ==========================================================================
 Foundation
@@ -22,8 +20,6 @@ Foundation
 @import "layout/_header";
 @import "layout/_main";
 @import "layout/_footer";
-
-// @import "layout/_sidebar";
 
 
 // ==========================================================================
@@ -44,13 +40,6 @@ Foundation
 @import "object/component/_article";
 
 
-
-
-
-// @import "object/component/_dialog";
-// @import "object/component/_grid";
-// @import "object/component/_media";
-
 // -----------------------------------------------------------------
 // Project
 // -----------------------------------------------------------------
@@ -60,18 +49,6 @@ Foundation
 @import "object/project/_mypage";
 @import "object/project/_show";
 @import "object/project/_lpImageArea";
-
-
-
-
-
-
-// @import "object/project/_form";
-
-// @import "object/project/_articles";
-// @import "object/project/_comments";
-// @import "object/project/_gallery";
-// @import "object/project/_profile";
 
 // -----------------------------------------------------------------
 // Utility
@@ -84,12 +61,3 @@ Foundation
 @import "object/utility/_padding";
 @import "object/utility/_color";
 
-
-
-
-// @import "object/utility/_align";
-// @import "object/utility/_clearfix";
-// @import "object/utility/_margin";
-// @import "object/utility/_position";
-// @import "object/utility/_size";
-// @import "object/utility/_text";

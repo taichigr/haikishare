@@ -13,11 +13,7 @@ use Illuminate\Validation\Rule;
 // コンビニ側店舗情報関連処理
 class MypageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     // コンビニ側マイページ表示
     public function index()
     {
@@ -36,12 +32,7 @@ class MypageController extends Controller
             'soldProducts' => $soldProducts,
         ]);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     // コンビニ側マイページ編集画面表示
     public function edit($id)
     {
@@ -53,13 +44,6 @@ class MypageController extends Controller
         return view('shop.mypage.edit', ['shop' => $shop]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // コンビニ側マイページ情報更新処理
     public function update(Request $request, $id)
     {

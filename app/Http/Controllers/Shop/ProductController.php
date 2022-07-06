@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Auth;
 // コンビニ側の商品関連処理
 class ProductController extends Controller
 {
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     // コンビニ側商品登録画面表示
     public function create()
     {
@@ -27,12 +22,6 @@ class ProductController extends Controller
         return view('shop.product.create', ['categories' => $categories]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     // コンビニ側商品登録処理
     public function store(ProductRequest $request)
     {
@@ -58,12 +47,6 @@ class ProductController extends Controller
         return redirect()->route('shop.mypage.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // コンビニ側商品編集画面表示
     public function edit($id)
     {
@@ -85,13 +68,6 @@ class ProductController extends Controller
         return view('shop.product.detail', ['product' => $product, 'categories' => $categories]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // コンビニ側商品情報更新処理
     public function update(Request $request, Product $product)
     {
@@ -115,12 +91,6 @@ class ProductController extends Controller
         return redirect()->route('shop.mypage.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // 商品削除処理
     public function destroy(Product $product)
     {

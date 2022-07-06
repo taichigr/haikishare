@@ -20,10 +20,6 @@ Route::get('/product', 'ProductController@index')->name('product.index');
 Route::get('/product/{product}/detail', 'ProductController@detail')->name('product.detail');
 
 
-
-// Route::resource('/product', 'ProductController', ['only' => ['index', 'show']]);
-
-
 // product
 Route::namespace('Product')->prefix('product')->name('product.')->group(function () {
     // 商品一覧

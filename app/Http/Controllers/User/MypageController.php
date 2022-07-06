@@ -13,11 +13,7 @@ use Illuminate\Validation\Rule;
 // ユーザー情報に関わる処理
 class MypageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     // ユーザーマイページ表示
     public function index()
     {
@@ -26,12 +22,7 @@ class MypageController extends Controller
         return view('user.mypage.index', ['products' => $products]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     // ユーザー情報編集画面表示
     public function edit($id)
     {
@@ -43,13 +34,6 @@ class MypageController extends Controller
         return view('user.mypage.edit', ['user' => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // ユーザー情報更新処理
     public function update(Request $request, $id)
     {
