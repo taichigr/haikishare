@@ -101,7 +101,7 @@ export default {
     },
     methods: {
         showReceivedMessage() {
-            confirm('購入済にしますか？購入者：'+ this.purchaser.name);
+            confirm('受取済にしますか？購入者：'+ this.purchaser.name);
         }
     }
 }
