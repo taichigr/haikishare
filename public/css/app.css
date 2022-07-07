@@ -951,6 +951,7 @@ img {
 }
 
 .p-menu__listItem {
+  white-space: nowrap;
   padding: 4px;
   padding-top: 8px;
 }
