@@ -51,13 +51,12 @@ class LoginController extends Controller
     {
         if (!session()->has('url.intended')) {
             if(session()->get('product_url')) {
+
                 session(['url.intended' => session()->get('product_url')]);
-            } else {
-                session(['url.intended' => url()->previous()]);
             }
         }
         session()->forget('product_url');
-
+// dd(session()->all());
         return view('user.auth.login');
     }
 
