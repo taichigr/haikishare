@@ -23,7 +23,7 @@
     }
     &__listGroup {
         display: flex;
-        font-size: $font-size-s;
+        font-size: $font-size-xs;
         @include mq() {
         font-size: $font-size-m;
         }

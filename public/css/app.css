@@ -941,7 +941,7 @@ img {
 
 .p-menu__listGroup {
   display: flex;
-  font-size: 12px;
+  font-size: 8px;
 }
 
 @media screen and (min-width: 414px) {
