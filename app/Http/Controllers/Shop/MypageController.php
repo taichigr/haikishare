@@ -88,7 +88,10 @@ class MypageController extends Controller
         // 退会時すべての商品情報論理削除
         $shop = Auth::user();
         // 受け取り完了していない商品があった場合
-        $product = Product::where('shop_id', $shop->id)->where('receive_flg', 0)->first();
+        $product = Product::where('shop_id', $shop->id)
+            ->whereNotNull('user_id')
+            ->where('receive_flg', 0)
+            ->first();
         if(!empty($product)) {
             $withdrawFlg = false;
         } else {
@@ -103,7 +106,9 @@ class MypageController extends Controller
         // 退会時すべての商品情報論理削除
         $shop = Auth::user();
         // 受け取り完了していない商品があった場合
-        $product = Product::where('shop_id', $shop->id)->where('receive_flg', 0)->first();
+        $product = Product::where('shop_id', $shop->id)
+            ->whereNotNull('user_id')
+            ->where('receive_flg', 0)->first();
         if(!empty($product)) {
             return back();
         }
