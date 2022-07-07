@@ -29,7 +29,6 @@
         }
     }
     &__listItem {
-        white-space: nowrap;
         padding: $space_s;
         padding-top: $space_m;
         @include mq() {
