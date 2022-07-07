@@ -14,8 +14,6 @@ class ShopPasswordResetNotification extends ResetPasswordNotification
 {
     use Queueable;
 
-    
-
     public function toMail($notifiable)
     {
         if (static::$toMailCallback) {
