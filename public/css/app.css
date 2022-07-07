@@ -1149,7 +1149,7 @@ img {
 }
 
 .is-active {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .c-pagination .is-active {
