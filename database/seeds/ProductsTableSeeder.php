@@ -388,7 +388,7 @@ class ProductsTableSeeder extends Seeder
                     'shop_id' => $i,
                     'category_id' => mt_rand(1, 25),
                     'price' => 200,
-                    'image' => 'image/22942638_s.jpg.jpg',
+                    'image' => 'image/22942638_s.jpg',
                     'expired_at' => now()->addDays(25),
                 ],
 
